@@ -1,0 +1,22 @@
+.palettes {
+  // min-height: 1000px;
+}
+
+.palettes__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.palettes__item {
+  width: 48%;
+  display: flex;
+  height: 3rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid $color-gray-75;
+
+  & > * {
+    flex-grow: 1;
+  }
+}

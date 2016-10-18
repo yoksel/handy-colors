@@ -1,0 +1,20 @@
+@mixin container-width {
+  max-width: $bp-mobile;
+
+  @media (min-width: $bp-tablet ) {
+    max-width: $bp-tablet;
+  }
+
+  @media (min-width: $bp-desktop ) {
+    max-width: $bp-desktop;
+  }
+}
+
+@mixin clear {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

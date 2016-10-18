@@ -1,0 +1,27 @@
+BODY {
+    background: $color-bg;
+    font: #{$font-size}/1.4 $font-family;
+    color: $color-font;
+}
+
+A {
+  color: $color-link;
+
+  &:visited {
+    color: $color-link-visited;
+  }
+
+  &:hover {
+    color: $color-link-hover;
+  }
+}
+
+UL {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+H1, H2, H3, H4, H5 {
+  font-weight: normal;
+}

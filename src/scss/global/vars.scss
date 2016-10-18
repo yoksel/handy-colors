@@ -1,0 +1,26 @@
+/* FONT */
+$font-family: Trebuchet MS, Verdana, serif;
+$font-size: 16px;
+
+/* COLORS */
+$color-bg: #FFF;
+
+$color-font: #111;
+$color-link: teal;
+$color-link-visited: darkcyan;
+$color-link-hover: cadetblue;
+
+$color-gray-70: hsl(0, 0, 70%);
+$color-gray-75: hsl(0, 0, 75%);
+$color-gray-80: hsl(0, 0, 80%);
+
+$color-black-op25: hsla(0,0,0,.25);
+$color-black-op30: hsla(0,0,0,.3);
+$color-black-op40: hsla(0,0,0,.4);
+$color-black-op50: hsla(0,0,0,.5);
+
+
+/* BREAKPOINTS */
+$bp-mobile: 320px;
+$bp-tablet: 650px;
+$bp-desktop: 1100px;

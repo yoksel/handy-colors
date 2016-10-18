@@ -1,0 +1,38 @@
+{
+  "name": "project-scaffold",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "author": "yoksel",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoksel/project-scaffold.git"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.5",
+    "browser-sync": "^2.11.2",
+    "colors": "^1.1.2",
+    "css-mqpacker": "^4.0.1",
+    "cssnano": "^3.5.2",
+    "del": "^2.2.0",
+    "editorconfig-tools": "^0.1.1",
+    "gulp": "^3.9.1",
+    "gulp-copy": "0.0.2",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-include": "^2.1.0",
+    "gulp-postcss": "^6.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.6",
+    "imagemin-pngquant": "^4.2.2"
+  },
+  "scripts": {
+    "start": "gulp serve",
+    "img": "gulp images",
+    "build": "gulp sass && gulp include && gulp copy",
+    "deploy": "npm run build && gulp ghPages",
+    "check": "editorconfig-tools check *",
+    "fix": "editorconfig-tools fix *"
+  }
+}

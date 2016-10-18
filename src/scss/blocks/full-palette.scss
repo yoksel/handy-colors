@@ -1,0 +1,96 @@
+.full-palette {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  }
+  .full-palette__column {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    }
+  .full-palette-color {
+    margin-bottom: 3px;
+    white-space: nowrap;
+    }
+  .full-palette-color__view,
+  .full-palette-color__name {
+    display: inline-block;
+    vertical-align: middle;
+    }
+  .full-palette-color__view {
+    position: relative;
+    width: 160px;
+    height: 50px;
+    background: currentColor;
+    box-shadow: 0 0 0 0 currentColor;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .75s;
+
+    &:before {
+      content: '+';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 2rem;
+      height: 2rem;
+      margin: auto;
+      border-radius: 50%;
+      border: 2px solid #FFF;
+      opacity: 0;
+      line-height: 2rem;
+      text-align: center;
+      font-size: 1.7rem;
+      color: #FFF;
+      transition: opacity .2s;
+    }
+
+    &:hover {
+      z-index: 1;
+      box-shadow: 0 0 0 4px currentColor,
+        0 0 10px 4px rgba(0,0,0,.3);
+      transition: all .1s;
+
+      &:before {
+        opacity: .5;
+      }
+
+      }
+    }
+  .full-palette-color__name {
+    padding-left: 1rem;
+    font-style: italic;
+    }
+
+  @media (min-width: $bp-tablet ) {
+    .full-palette {
+      flex-direction: row;
+      }
+    .full-palette__column {
+      width: 50%;
+      }
+    .full-palette-color__view {
+      width: 140px;
+      height: 40px;
+      }
+    .full-palette-color__name {
+      padding-left: 10px;
+      }
+    }
+
+  @media (min-width: $bp-desktop ) {
+    .full-palette__column {
+      width: 25%;
+      }
+    .full-palette-color__view {
+      width: 110px;
+      height: 35px;
+      }
+    .full-palette-color__name {
+      font-size: 14px;
+      }
+  }

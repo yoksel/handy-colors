@@ -1,0 +1,32 @@
+.main {
+  width: 100%;
+  padding-bottom: 200px;
+
+  .no-js & {
+    padding-bottom: 20px;
+  }
+}
+
+.section__title {
+  // font-family: 'Wendy One', Impact, sans-serif;
+  // text-transform: uppercase;
+  text-align: center;
+}
+
+
+.section--palettes,
+.section--full-palette {
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+.section--visible {
+  display: block;
+}
+
+:target {
+  display: block;
+}

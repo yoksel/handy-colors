@@ -1,0 +1,22 @@
+.header,
+.container,
+.footer {
+  @include container-width;
+  margin: 1rem auto;
+  box-sizing: border-box;
+}
+
+.container,
+.footer {
+  padding: .5rem 2rem;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media ( min-width: $bp-tablet ) {
+    flex-direction: row;
+  }
+}

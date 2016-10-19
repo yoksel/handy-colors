@@ -7,18 +7,24 @@ var cls = {
   createPalColorActive: 'create-palette__color--active',
 };
 
-var createPalWrapper = $.get('.create-palette-wrapper');
 var colorsViews = $.get('.full-palette-color__view');
+var createPalWrapper = $.get('.create-palette-wrapper');
 var createPalColors = $.get('.' + cls.createPalColor);
 var createPalOutput = $.get('.create-palette__output');
 
-var palettesWrapper = $.get('.palettes');
-var palettesList = $.create('ul').addClass('palettes__list');
+var palettesSet = {
+  current: null,
+  currentClass: 'palettes__item--current',
+  wrapper: $.get('.palettes'),
+  list: $.create('ul').addClass('palettes__list'),
+  items: []
+};
 
 var nav = {
-  items: $.get('.nav__item'),
   current: null,
-  currentClass: 'nav__item--current'
+  currentClass: 'nav__item--current',
+  items: $.get('.nav__item'),
+  list: {}
 };
 
 var tabs = {
@@ -30,11 +36,11 @@ var tabs = {
   }
 };
 
-var colors = {
+var newPalette = {
   currentPos: 0,
   currentElem: createPalColors[ 0 ],
   isCurrentJumping: true,
-  list: []
+  colors: []
 };
 
 init();
@@ -43,12 +49,33 @@ init();
 
 function init() {
 
-  doc.body.classList.remove('no-js');
-
   initNav();
+  initDoc();
   initPalettes();
   initColorViews();
   initCreatePalette();
+}
+
+//---------------------------------------------
+
+function initDoc() {
+  doc.body.classList.remove('no-js');
+
+  if ( doc.location.hash ) {
+    setCurrentByHash( doc.location.hash.substring(1) );
+  }
+}
+
+//---------------------------------------------
+
+function setCurrentByHash( hash ) {
+  nav.current.removeClass( nav.currentClass );
+  nav.current = nav.list[ hash ];
+  nav.current.addClass( nav.currentClass );
+
+  tabs.current.removeClass( tabs.currentClass );
+  tabs.current = tabs.list[ hash ];
+  tabs.current.addClass( tabs.currentClass );
 }
 
 //---------------------------------------------
@@ -60,18 +87,14 @@ function initNav() {
   tabs.current.addClass( tabs.currentClass );
 
   nav.items.forEach( function ( item ) {
+    var target = item.elem.dataset.target;
+    nav.list[ target ] = item;
 
     item.elem.onclick = function ( ev ) {
-      var target = this.dataset.target;
       ev.preventDefault();
+      doc.location.hash = target;
 
-      nav.current.removeClass( nav.currentClass );
-      nav.current = item;
-      nav.current.addClass( nav.currentClass );
-
-      tabs.current.removeClass( tabs.currentClass );
-      tabs.current = tabs.list[ target ];
-      tabs.current.addClass( tabs.currentClass );
+      setCurrentByHash( target )
     }
   });
 }
@@ -80,28 +103,41 @@ function initNav() {
 
 function initPalettes() {
   palettes.forEach( function ( item ) {
-    palettesList.append (createPalette( item ));
+    var tinyPalette = createTinyPalette( item );
+    palettesSet.list.append ( tinyPalette );
+    palettesSet.items.push( tinyPalette );
   });
 
-  palettesWrapper.append( palettesList );
+  palettesSet.wrapper.append( palettesSet.list );
+
+  addPaletteAction();
 }
 
 //---------------------------------------------
 
-function createPalette( paletteItem ) {
+function createTinyPalette( paletteItem ) {
   var tinyPalette = $.create('li').addClass(['palettes__item','tiny-palette']);
-  var tinyPaletteList = $.create('ul').addClass('tiny-palette__list');
+  var tinyPaletteList = $.create('ul').addClass('tiny-palette__colorviews');
+  var tinyPaletteColorNames = $.create('ul').addClass(['tiny-palette__colornames']);
   var colors = paletteItem.colors;
 
   var tinyPaletteHeader = createTinyPaletteHeader( paletteItem );
   tinyPalette.append( tinyPaletteHeader );
 
   colors.forEach( function ( item ) {
-    var tinyPaletteItem = $.create('li').addClass('tiny-palette__item').attr('style','background: ' + item);
+    // Color view
+    var tinyPaletteItem = $.create('li').addClass('tiny-palette__colorview').attr('style','background: ' + item);
     tinyPaletteList.append( tinyPaletteItem );
+
+    // Color name
+    var li = $.create( 'li' )
+              .addClass(['tiny-palette__colorname'])
+              .html( item );
+    tinyPaletteColorNames.append( li );
   });
 
   tinyPalette.append( tinyPaletteList );
+  tinyPalette.append( tinyPaletteColorNames );
 
   return tinyPalette;
 }
@@ -119,7 +155,7 @@ function createTinyPaletteHeader( paletteItem ) {
 
   var author = $.create('span')
     .addClass('tiny-palette__author')
-    .html( getAuthor( paletteItem) );
+    .html( getTinyPaletteAuthor( paletteItem) );
 
   header.append( author );
 
@@ -128,7 +164,7 @@ function createTinyPaletteHeader( paletteItem ) {
 
 //---------------------------------------------
 
-function getAuthor( paletteItem ) {
+function getTinyPaletteAuthor( paletteItem ) {
   var authorProfiles = paletteItem.author;
 
   if ( authorProfiles.twitter ) {
@@ -148,6 +184,21 @@ function getAuthor( paletteItem ) {
 
 //---------------------------------------------
 
+function addPaletteAction() {
+  palettesSet.items.forEach( function ( item ) {
+    item.elem.onclick = function () {
+
+      if ( palettesSet.current ) {
+        palettesSet.current.removeClass( palettesSet.currentClass )
+      }
+      palettesSet.current = item;
+      palettesSet.current.addClass( palettesSet.currentClass );
+    }
+  });
+}
+
+//---------------------------------------------
+
 function initColorViews() {
   colorsViews.forEach( function ( item, i ) {
 
@@ -156,7 +207,7 @@ function initColorViews() {
       fillColorsList( color );
       printColorsList();
       addColorToPalette( color );
-      setCurrent();
+      setCurrentColor();
     };
   });
 }
@@ -169,8 +220,8 @@ function initCreatePalette() {
 
     item.elem.onclick = function ( ev ) {
       ev.stopPropagation();
-      colors.isCurrentJumping = false;
-      setCurrent( i );
+      newPalette.isCurrentJumping = false;
+      setCurrentColor( i );
     };
   });
 
@@ -182,51 +233,51 @@ function initCreatePalette() {
 //---------------------------------------------
 
 function fillColorsList( color, i ) {
-  colors.list[ colors.currentPos ] = color;
+  newPalette.colors[ newPalette.currentPos ] = color;
 }
 
 //---------------------------------------------
 
 function printColorsList() {
   var list = '';
-  var createPalColorNames = $.get('.create-palette__colornames');
-  var ul = createPalColorNames.elem.cloneNode( false );
+  var colorsList = $.get('.create-palette__colornames').addClass('colornames');
+  var ul = colorsList.elem.cloneNode( false );
 
-  colors.list.forEach( function ( item ) {
+  newPalette.colors.forEach( function ( item ) {
     var span = $.create( 'span' ).html( item );
     var li = $.create( 'li' )
-              .addClass('create-palette__colorname')
+              .addClass(['create-palette__colorname', 'colorname'])
               .attr({'style': 'color: ' + item})
               .append( span );
 
     ul.appendChild( li.elem );
   });
 
-  createPalColorNames.elem.parentNode.replaceChild( ul, createPalColorNames.elem );
+  colorsList.elem.parentNode.replaceChild( ul, colorsList.elem );
 }
 
 //---------------------------------------------
 
-function setCurrent( i ) {
-  if ( colors.currentElem ) {
-    colors.currentElem.removeClass( cls.createPalColorCurrent );
+function setCurrentColor( i ) {
+  if ( newPalette.currentElem ) {
+    newPalette.currentElem.removeClass( cls.createPalColorCurrent );
   }
 
   if ( i >= 0 ) {
-    colors.currentPos = i;
+    newPalette.currentPos = i;
   }
-  else if ( colors.list.length < createPalColors.length && colors.isCurrentJumping !== false ){
-    colors.currentPos++;
+  else if ( newPalette.colors.length < createPalColors.length && newPalette.isCurrentJumping !== false ){
+    newPalette.currentPos++;
   }
 
-  colors.currentElem = createPalColors[ colors.currentPos ];
-  colors.currentElem.addClass( cls.createPalColorCurrent );
+  newPalette.currentElem = createPalColors[ newPalette.currentPos ];
+  newPalette.currentElem.addClass( cls.createPalColorCurrent );
 }
 
 //---------------------------------------------
 
 function addColorToPalette( color ) {
-  var target = colors.activeElem || colors.currentElem;
+  var target = newPalette.activeElem || newPalette.currentElem;
   target.elem.style.backgroundColor = color;
 }
 

@@ -104,3 +104,18 @@ palettes[ palettes.length ] = {
     'darkolivegreen',
   ],
 };
+
+palettes[ palettes.length ] = {
+  title: 'Lilac',
+  author: {
+    twitter: 'yoksel',
+    github: 'yoksel'
+  },
+  colors: [
+    'orchid',
+    'mediumorchid',
+    'darkorchid',
+    'rebeccapurple',
+    'indigo',
+  ],
+};

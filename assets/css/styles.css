@@ -662,8 +662,6 @@ H1, H2, H3, H4, H5 {
   flex-grow: 1;
   margin: .5rem .5rem 1rem;
   transition: all .5s; }
-  .palettes__item--current .tiny-palette__colornames {
-    opacity: 1; }
 
 .tiny-palette__header {
   margin-bottom: .1rem;
@@ -695,7 +693,7 @@ H1, H2, H3, H4, H5 {
   flex-wrap: wrap;
   align-items: center;
   padding: .5rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.4);
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   opacity: 0;
@@ -703,6 +701,8 @@ H1, H2, H3, H4, H5 {
   font-style: italic;
   transition: opacity .3s;
   cursor: pointer; }
+  .tiny-palette__colornames--current {
+    opacity: 1; }
 
 .tiny-palette__colorname {
   margin: 0 .5rem 0 0; }

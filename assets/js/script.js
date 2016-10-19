@@ -14,10 +14,11 @@ var createPalOutput = $.get('.create-palette__output');
 
 var palettesSet = {
   current: null,
-  currentClass: 'palettes__item--current',
+  currentClass: 'tiny-palette__colornames--current',
   wrapper: $.get('.palettes'),
   list: $.create('ul').addClass('palettes__list'),
-  items: []
+  items: [],
+  colorNamesItems: []
 };
 
 var nav = {
@@ -118,7 +119,7 @@ function initPalettes() {
 function createTinyPalette( paletteItem ) {
   var tinyPalette = $.create('li').addClass(['palettes__item','tiny-palette']);
   var tinyPaletteList = $.create('ul').addClass('tiny-palette__colorviews');
-  var tinyPaletteColorNames = $.create('ul').addClass(['tiny-palette__colornames']);
+  var tinyPaletteColorNames = $.create('ul').addClass(['tiny-palette__colornames']).attr({tabindex:"-1"});
   var colors = paletteItem.colors;
 
   var tinyPaletteHeader = createTinyPaletteHeader( paletteItem );
@@ -138,6 +139,7 @@ function createTinyPalette( paletteItem ) {
 
   tinyPalette.append( tinyPaletteList );
   tinyPalette.append( tinyPaletteColorNames );
+  palettesSet.colorNamesItems.push( tinyPaletteColorNames );
 
   return tinyPalette;
 }
@@ -185,15 +187,27 @@ function getTinyPaletteAuthor( paletteItem ) {
 //---------------------------------------------
 
 function addPaletteAction() {
-  palettesSet.items.forEach( function ( item ) {
+  palettesSet.colorNamesItems.forEach( function ( item ) {
     item.elem.onclick = function () {
 
-      if ( palettesSet.current ) {
+      if ( palettesSet.current !== null ) {
         palettesSet.current.removeClass( palettesSet.currentClass )
+      }
+
+      if ( palettesSet.current === item ) {
+        palettesSet.current = null;
+        return;
       }
       palettesSet.current = item;
       palettesSet.current.addClass( palettesSet.currentClass );
-    }
+    };
+
+    item.elem.onblur = function () {
+      if ( palettesSet.current !== null ) {
+        palettesSet.current.removeClass( palettesSet.currentClass );
+        palettesSet.current = null;
+      }
+    };
   });
 }
 

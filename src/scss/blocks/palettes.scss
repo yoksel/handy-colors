@@ -21,16 +21,6 @@
   @media ( min-width: $bp-tablet ) {
     flex-basis: 45%;
   }
-
-  &--current {
-    // flex-basis: 100%;
-    // height: 10rem;
-    // outline: 2px solid gold;
-
-    .tiny-palette__colornames {
-      opacity: 1;
-    }
-  }
 }
 
 .tiny-palette__header {
@@ -68,7 +58,7 @@
   flex-wrap: wrap;
   align-items: center;
   padding: .5rem;
-  background: hsla(0,0,100%,.5);
+  background: hsla(0,0,100%,.4);
   border: 4px solid $color-black-op10;
   border-radius: 5px;
   opacity: 0;
@@ -76,6 +66,10 @@
   font-style: italic;
   transition: opacity .3s;
   cursor: pointer;
+
+  &--current {
+    opacity: 1;
+  }
 
   @media ( min-width: $bp-desktop ) {
     height: auto;

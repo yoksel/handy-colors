@@ -1,18 +1,34 @@
-.palettes {
-  // min-height: 1000px;
-}
+.palettes {}
 
 .palettes__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .palettes__item {
-  flex-basis: 200px;
+  flex-basis: 250px;
   display: flex;
+  flex-wrap: wrap;
   flex-grow: 1;
+  margin: .5rem .5rem 1rem;
+}
+
+.tiny-palette__header {
+  margin-bottom: .2rem;
+  display: flex;
+  font-size: 12px;
+  color: #999;
+}
+
+.tiny-palette__title {
+  margin: 0 .4em 0 0;
+}
+
+.tiny-palette__list {
+  display: flex;
+  flex-basis: 100%;
   height: 3rem;
-  margin: .5rem;
   border-radius: 5px;
   overflow: hidden;
   border: 1px solid $color-gray-75;

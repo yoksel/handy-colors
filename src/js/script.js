@@ -240,7 +240,7 @@ function initCreatePalette() {
   });
 
   createPalWrapper.elem.onclick = function ( ev ) {
-    colors.currentElem.removeClass( cls.createPalColorCurrent );
+    newPalette.currentElem.removeClass( cls.createPalColorCurrent );
   }
 }
 

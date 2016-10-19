@@ -26,7 +26,7 @@ palettes[ palettes.length ] = {
     'palegoldenrod',
     'goldenrod',
     'darkgoldenrod',
-    'sienna'
+    'saddlebrown'
   ],
 };
 

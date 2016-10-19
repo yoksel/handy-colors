@@ -27,9 +27,23 @@ $crp-inner-radius: 5px;
 .create-palette__title {
   margin-top: 0;
   margin-bottom: 1rem;
+  text-align: center;
   font-family: $font-family-title;
   font-size: 2rem;
   color: $color-title;
+
+  &:before,
+  &:after {
+    content: '\2605';
+    vertical-align: .35em;
+    font-size: .5em;
+  }
+  &:before {
+    margin-right: .4em;
+  }
+  &:after {
+    margin-left: .4em;
+  }
 }
 
 .create-palette__colors {

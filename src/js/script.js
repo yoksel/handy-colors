@@ -88,15 +88,62 @@ function initPalettes() {
 
 //---------------------------------------------
 
-function createPalette( colors ) {
-  var colorsItem = $.create('li').addClass('palettes__item');
+function createPalette( paletteItem ) {
+  var tinyPalette = $.create('li').addClass(['palettes__item','tiny-palette']);
+  var tinyPaletteList = $.create('ul').addClass('tiny-palette__list');
+  var colors = paletteItem.colors;
+
+  var tinyPaletteHeader = createTinyPaletteHeader( paletteItem );
+  tinyPalette.append( tinyPaletteHeader );
 
   colors.forEach( function ( item ) {
-    var span = $.create('span').addClass('palettes__color').attr('style','background: ' + item);
-    colorsItem.append( span );
+    var tinyPaletteItem = $.create('li').addClass('tiny-palette__item').attr('style','background: ' + item);
+    tinyPaletteList.append( tinyPaletteItem );
   });
 
-  return colorsItem;
+  tinyPalette.append( tinyPaletteList );
+
+  return tinyPalette;
+}
+
+//---------------------------------------------
+
+function createTinyPaletteHeader( paletteItem ) {
+  var header = $.create('header').addClass('tiny-palette__header');
+
+  var title = $.create('h4')
+    .addClass('tiny-palette__title')
+    .html( paletteItem.title || '*' );
+
+  header.append( title );
+
+  var author = $.create('span')
+    .addClass('tiny-palette__author')
+    .html( getAuthor( paletteItem) );
+
+  header.append( author );
+
+  return header;
+}
+
+//---------------------------------------------
+
+function getAuthor( paletteItem ) {
+  var authorProfiles = paletteItem.author;
+
+  if ( authorProfiles.twitter ) {
+    var name = authorProfiles.twitter;
+    var link = 'https://twitter.com/' + authorProfiles.twitter;
+  }
+  else if ( authorProfiles.github ) {
+    var name = authorProfiles.github;
+    var link = 'https://gist.github.com/' + authorProfiles.github;
+  }
+
+  if ( name ) {
+    return 'by <a href="' + link + '">' + name + '</a>';
+  }
+  return '';
 }
 
 //---------------------------------------------

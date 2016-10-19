@@ -2,13 +2,13 @@
 .container,
 .footer {
   @include container-width;
-  margin: 1rem auto;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
 .container,
 .footer {
-  padding: .5rem 2rem;
+  padding: 0 1rem;
 }
 
 .container {

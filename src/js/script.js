@@ -56,10 +56,8 @@ function init() {
 function initNav() {
   nav.current = nav.items[0];
   nav.current.addClass( nav.currentClass );
-  tabs.current = tabs.list['palettes'];
+  tabs.current = tabs.list['full-palette'];
   tabs.current.addClass( tabs.currentClass );
-
-  console.log( nav );
 
   nav.items.forEach( function ( item ) {
 
@@ -81,15 +79,9 @@ function initNav() {
 //---------------------------------------------
 
 function initPalettes() {
-  // palettesList
-  console.log(palettes);
-
   palettes.forEach( function ( item ) {
     palettesList.append (createPalette( item ));
-    // console.log( palette );
   });
-
-  // palettes
 
   palettesWrapper.append( palettesList );
 }

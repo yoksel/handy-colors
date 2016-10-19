@@ -8,14 +8,17 @@
 }
 
 .section__title {
-  // font-family: 'Wendy One', Impact, sans-serif;
-  // text-transform: uppercase;
+  display: none;
+  margin-top: 0;
   text-align: center;
+  font-family: $font-family-title;
+  font-size: 2.5rem;
 }
 
 
 .section--palettes,
 .section--full-palette {
+  padding: 2rem 0;
   display: none;
 
   .no-js & {

@@ -20,13 +20,15 @@
     }
   .full-palette-color__view {
     position: relative;
-    width: 160px;
+    width: 130px;
     height: 50px;
     background: currentColor;
-    box-shadow: 0 0 0 0 currentColor;
+    box-shadow: 0 0 0 0 currentColor,
+                0 0 0 0 rgba(0,0,0,0),
+                inset 0 0 0 1px rgba(0,0,0,.25);
     border-radius: 5px;
     cursor: pointer;
-    transition: all .75s;
+    transition: all .2s;
 
     &:before {
       content: '+';
@@ -52,8 +54,9 @@
     &:hover {
       z-index: 1;
       box-shadow: 0 0 0 4px currentColor,
-        0 0 10px 4px rgba(0,0,0,.3);
-      transition: all .1s;
+        0 0 10px 4px rgba(0,0,0,.3),
+        inset 0 0 0 1px currentColor;
+      // transition: all .1s;
 
       &:before {
         opacity: .5;
@@ -63,6 +66,7 @@
     }
   .full-palette-color__name {
     padding-left: 1rem;
+    font-size: 15px;
     font-style: italic;
     }
 

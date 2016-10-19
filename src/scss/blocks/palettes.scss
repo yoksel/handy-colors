@@ -8,10 +8,11 @@
   justify-content: space-between;
 }
 .palettes__item {
-  width: 48%;
+  flex-basis: 200px;
   display: flex;
+  flex-grow: 1;
   height: 3rem;
-  margin-bottom: 2rem;
+  margin: .5rem;
   border-radius: 5px;
   overflow: hidden;
   border: 1px solid $color-gray-75;

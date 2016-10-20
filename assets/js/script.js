@@ -227,7 +227,7 @@ function initColorViews() {
   colorsViews.forEach( function ( item, i ) {
 
     item.elem.onclick = function () {
-      var color = this.style.color;
+      var color = this.dataset.color;
       fillColorsList( color );
       printColorsList();
       addColorToPalette( color );

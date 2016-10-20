@@ -44,6 +44,15 @@ var newPalette = {
   colors: []
 };
 
+var fullPaletteControls = {
+  current: null,
+  currentClass: 'full-palette__control--current',
+  items: $.get('.full-palette__control'),
+  target: $.get('.full-palette__colors'),
+  targetState: '',
+  targetStateClass: 'full-palette__colors--tiles'
+};
+
 init();
 
 //---------------------------------------------
@@ -54,6 +63,7 @@ function init() {
   initDoc();
   initPalettes();
   initColorViews();
+  initPaletteControls();
   initCreatePalette();
 }
 
@@ -223,6 +233,35 @@ function initColorViews() {
       addColorToPalette( color );
       setCurrentColor();
     };
+  });
+}
+
+//---------------------------------------------
+
+function initPaletteControls() {
+  fullPaletteControls.current = fullPaletteControls.items[0];
+  fullPaletteControls.current.addClass( fullPaletteControls.currentClass );
+  targetState = fullPaletteControls.current.val();
+
+  fullPaletteControls.items.forEach( function ( item ) {
+
+    item.elem.onclick = function () {
+      if ( fullPaletteControls.current !== null ) {
+        fullPaletteControls.current.removeClass( fullPaletteControls.currentClass );
+      }
+
+      fullPaletteControls.current = item;
+      fullPaletteControls.current.addClass( fullPaletteControls.currentClass );
+
+      fullPaletteControls.targetState = this.value;
+
+      if ( fullPaletteControls.targetState === 'tiles' ) {
+        fullPaletteControls.target.addClass( fullPaletteControls.targetStateClass );
+      }
+      else {
+        fullPaletteControls.target.removeClass( fullPaletteControls.targetStateClass );
+      }
+    }
   });
 }
 

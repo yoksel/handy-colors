@@ -519,14 +519,50 @@ H1, H2, H3, H4, H5 {
   .colorname SPAN {
     color: #111; }
 
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0; }
+
 .full-palette {
+  overflow: hidden; }
+
+.full-palette__controls {
+  margin-bottom: 2rem;
+  text-align: right; }
+
+.full-palette__control {
+  margin-left: .5rem;
+  padding: .4rem;
+  border: 1px solid #bfbfbf;
+  background: none;
+  border-radius: 5px;
+  outline: none;
+  fill: #bfbfbf; }
+  .full-palette__control--current {
+    fill: lightseagreen;
+    border-color: lightseagreen; }
+
+.full-palette__control-icon {
+  display: block; }
+
+.full-palette__colors {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap; }
 
+.full-palette__colors--tiles {
+  height: 4140px;
+  margin: 0 -.2rem; }
+
 .full-palette-color {
   margin-bottom: 3px;
-  white-space: nowrap; }
+  white-space: nowrap;
+  display: flex;
+  align-items: center; }
+  .full-palette__colors--tiles .full-palette-color {
+    width: auto;
+    margin: 0 .2rem .4rem; }
 
 .full-palette-color__view,
 .full-palette-color__name {
@@ -542,6 +578,8 @@ H1, H2, H3, H4, H5 {
   border-radius: 5px;
   cursor: pointer;
   transition: all .2s; }
+  .full-palette__colors--tiles .full-palette-color__view {
+    flex-grow: 1; }
   .full-palette-color__view:before {
     content: '+';
     display: block;
@@ -571,6 +609,9 @@ H1, H2, H3, H4, H5 {
   padding-left: 1rem;
   font-size: 15px;
   font-style: italic; }
+  .full-palette__colors--tiles .full-palette-color__name {
+    display: none; }
+
 .create-palette-wrapper {
   position: fixed;
   z-index: 2;
@@ -735,11 +776,11 @@ H1, H2, H3, H4, H5 {
     width: 1.75rem;
     height: 1.75rem;
     box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.25); }
-  .full-palette {
+  .full-palette__colors {
     height: 3200px; }
+  .full-palette__colors--tiles {
+    height: 1700px; }
   .full-palette-color {
-    width: 50%; }
-  .full-palette__column {
     width: 50%; }
   .full-palette-color__view {
     width: 140px;
@@ -771,8 +812,10 @@ H1, H2, H3, H4, H5 {
     width: 2rem;
     height: 2rem;
     box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.25); }
-  .full-palette {
+  .full-palette__colors {
     height: 1410px; }
+  .full-palette__colors--tiles {
+    height: 1020px; }
   .full-palette-color {
     width: 25%; }
   .full-palette-color__view {

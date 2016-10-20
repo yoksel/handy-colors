@@ -1,8 +1,35 @@
 .full-palette {
+  overflow: hidden;
+}
+.full-palette__controls {
+  margin-bottom: 2rem;
+  text-align: right;
+}
+
+.full-palette__control {
+  margin-left: .5rem;
+  padding: .4rem;
+  border: 1px solid $color-gray-75;
+  background: none;
+  border-radius: 5px;
+  outline: none;
+  fill: $color-gray-75;
+
+  &--current {
+    fill: $color-green-light;
+    border-color: $color-green-light;
+  }
+}
+
+.full-palette__control-icon {
+  display: block;
+}
+
+
+.full-palette__colors {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  // justify-content: space-between;
 
   @media ( min-width: $bp-tablet ) {
     height: 3200px;
@@ -13,98 +40,115 @@
   }
 }
 
-  .full-palette-color {
-    margin-bottom: 3px;
-    white-space: nowrap;
-    // outline: 2px solid gold;
+.full-palette__colors--tiles {
+  height: 4140px;
+  margin: 0 -.2rem;
 
-    @media ( min-width: $bp-tablet ) {
-      width: 50%;
-    }
-    @media ( min-width: $bp-desktop ) {
-      width: 25%;
-    }
+  @media ( min-width: $bp-tablet ) {
+    height: 1700px;
+  }
+  @media ( min-width: $bp-desktop ) {
+    height: 1020px;
+  }
+}
+
+.full-palette-color {
+  margin-bottom: 3px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+
+  @media ( min-width: $bp-tablet ) {
+    width: 50%;
+  }
+  @media ( min-width: $bp-desktop ) {
+    width: 25%;
   }
 
-  .full-palette-color__view,
-  .full-palette-color__name {
-    display: inline-block;
-    vertical-align: middle;
+  .full-palette__colors--tiles & {
+    width: auto;
+    margin: 0 .2rem .4rem;
   }
-  .full-palette-color__view {
-    position: relative;
-    width: 130px;
-    height: 50px;
-    background: currentColor;
-    box-shadow: 0 0 0 0 currentColor,
-                0 0 0 0 rgba(0,0,0,0),
-                inset 0 0 0 1px rgba(0,0,0,.2);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all .2s;
+}
 
-    &:before {
-      content: '+';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 2rem;
-      height: 2rem;
-      margin: auto;
-      border-radius: 50%;
-      border: 2px solid #FFF;
-      opacity: 0;
-      line-height: 2rem;
-      text-align: center;
-      font-size: 1.7rem;
-      color: #FFF;
-      transition: opacity .2s;
-    }
-
-    &:hover {
-      z-index: 1;
-      box-shadow: 0 0 0 4px currentColor,
-        0 0 10px 4px rgba(0,0,0,.3),
-        inset 0 0 0 1px currentColor;
-      // transition: all .1s;
-
-      &:before {
-        opacity: .5;
-      }
-
-      }
-    }
-  .full-palette-color__name {
-    padding-left: 1rem;
-    font-size: 15px;
-    font-style: italic;
-    }
+.full-palette-color__view,
+.full-palette-color__name {
+  display: inline-block;
+  vertical-align: middle;
+}
+.full-palette-color__view {
+  position: relative;
+  width: 130px;
+  height: 50px;
+  background: currentColor;
+  box-shadow: 0 0 0 0 currentColor,
+              0 0 0 0 rgba(0,0,0,0),
+              inset 0 0 0 1px rgba(0,0,0,.2);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .2s;
 
   @media (min-width: $bp-tablet ) {
-    .full-palette {
-      // flex-direction: row;
-      }
-    .full-palette__column {
-      width: 50%;
-      }
-    .full-palette-color__view {
-      width: 140px;
-      height: 40px;
-      }
-    .full-palette-color__name {
-      padding-left: 10px;
-      }
+    width: 140px;
+    height: 40px;
+  }
+  @media (min-width: $bp-desktop ) {
+    width: 110px;
+    height: 35px;
+  }
+
+  .full-palette__colors--tiles & {
+    flex-grow: 1;
+  }
+
+  &:before {
+    content: '+';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    margin: auto;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    opacity: 0;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color: #FFF;
+    transition: opacity .2s;
+  }
+
+  &:hover {
+    z-index: 1;
+    box-shadow: 0 0 0 4px currentColor,
+      0 0 10px 4px rgba(0,0,0,.3),
+      inset 0 0 0 1px currentColor;
+
+    &:before {
+      opacity: .5;
     }
 
+  }
+}
+
+.full-palette-color__name {
+  padding-left: 1rem;
+  font-size: 15px;
+  font-style: italic;
+
+  @media (min-width: $bp-tablet ) {
+      padding-left: 10px;
+  }
+
   @media (min-width: $bp-desktop ) {
-    .full-palette-color__view {
-      width: 110px;
-      height: 35px;
-      }
-    .full-palette-color__name {
       font-size: 14px;
-      }
+  }
+
+  .full-palette__colors--tiles & {
+    display: none;
+    }
   }

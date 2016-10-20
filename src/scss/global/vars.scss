@@ -6,13 +6,6 @@ $font-size: 16px;
 /* COLORS */
 $color-bg: #FFF;
 
-$color-font: #111;
-$color-link: darkcyan;
-$color-link-visited: lightseagreen;
-$color-link-hover: cadetblue;
-
-$color-title: darkcyan;
-
 $color-gray-70: hsl(0, 0, 70%);
 $color-gray-75: hsl(0, 0, 75%);
 $color-gray-80: hsl(0, 0, 80%);
@@ -25,6 +18,17 @@ $color-black-op40: hsla(0,0,0,.4);
 $color-black-op50: hsla(0,0,0,.5);
 $color-black-op60: hsla(0,0,0,.6);
 $color-black-op70: hsla(0,0,0,.7);
+
+$color-green-light: lightseagreen;
+$color-green-dark: darkcyan;
+
+$color-font: #111;
+$color-link: $color-green-dark;
+$color-link-visited: $color-green-light;
+$color-link-hover: cadetblue;
+
+$color-title: $color-green-dark;
+
 
 /* BREAKPOINTS */
 $bp-mobile: 320px;

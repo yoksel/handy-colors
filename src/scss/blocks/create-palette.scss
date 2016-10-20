@@ -29,14 +29,22 @@ $crp-inner-radius: 5px;
   margin-bottom: 1rem;
   text-align: center;
   font-family: $font-family-title;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: $color-title;
+
+  @media ( min-width: $bp-tablet ) {
+    font-size: 2rem;
+  }
 
   &:before,
   &:after {
     content: '\2605';
-    vertical-align: .35em;
+    vertical-align: .25em;
     font-size: .5em;
+
+    @media ( min-width: $bp-tablet ) {
+      vertical-align: .35em;
+    }
   }
   &:before {
     margin-right: .4em;

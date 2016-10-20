@@ -524,9 +524,6 @@ H1, H2, H3, H4, H5 {
   width: 0;
   height: 0; }
 
-.full-palette {
-  overflow: hidden; }
-
 .full-palette__controls {
   margin-bottom: 2rem;
   text-align: right; }

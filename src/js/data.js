@@ -60,17 +60,91 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
+  title: 'Felt pens',
+  author: {
+    twitter: 'yoksel_en',
+    github: 'yoksel_en'
+  },
+  colors: [
+    'tomato',
+    'yellow',
+    'yellowgreen',
+    'lightseagreen',
+    'darkslateblue',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Pale colors',
+  author: {
+    twitter: 'yoksel_en',
+    github: 'yoksel_en'
+  },
+  colors: [
+    'palegoldenrod',
+    'paleturquoise',
+    'palegreen',
+    'palevioletred',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Pale colors II',
+  author: {
+    twitter: 'yoksel_en',
+    github: 'yoksel_en'
+  },
+  colors: [
+    'salmon',
+    'palegoldenrod',
+    'darkseagreen',
+    'cadetblue',
+    'darkslateblue',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Pink powder',
+  author: {
+    twitter: 'yoksel_en',
+    github: 'yoksel_en'
+  },
+  colors: [
+    'indianred',
+    'lightcoral',
+    'lightsalmon',
+    'peachpuff',
+    'blanchedalmond',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Moss powder',
+  author: {
+    twitter: 'yoksel_en',
+    github: 'yoksel_en'
+  },
+  colors: [
+    'rosybrown',
+    'peachpuff',
+    'lightgoldenrodyellow',
+    'khaki',
+    'darkkhaki',
+  ],
+};
+
+palettes[ palettes.length ] = {
   title: 'Sea I',
   author: {
     twitter: 'yoksel_en',
     github: ''
   },
   colors: [
-    'beige',
-    'palegoldenrod',
-    'cadetblue',
+    'darkslategray',
     'teal',
-    'darkslategray'
+    'cadetblue',
+    'palegoldenrod',
+    'beige',
   ],
 };
 
@@ -81,11 +155,11 @@ palettes[ palettes.length ] = {
     github: ''
   },
   colors: [
-    'lemonchiffon',
-    'mediumturquoise',
-    'lightseagreen',
-    'teal',
     'darkslategray',
+    'teal',
+    'lightseagreen',
+    'mediumturquoise',
+    'lemonchiffon',
   ],
 };
 
@@ -110,11 +184,11 @@ palettes[ palettes.length ] = {
     twitter: 'yoksel_en'
   },
   colors: [
-    'mistyrose',
-    'pink',
-    'palevioletred',
-    'deeppink',
     'mediumvioletred',
+    'deeppink',
+    'palevioletred',
+    'pink',
+    'mistyrose',
   ],
 };
 
@@ -139,11 +213,11 @@ palettes[ palettes.length ] = {
     github: ''
   },
   colors: [
-    'lightgoldenrodyellow',
-    'palegoldenrod',
-    'goldenrod',
+    'saddlebrown',
     'darkgoldenrod',
-    'saddlebrown'
+    'goldenrod',
+    'palegoldenrod',
+    'lightgoldenrodyellow',
   ],
 };
 
@@ -154,11 +228,11 @@ palettes[ palettes.length ] = {
     github: ''
   },
   colors: [
-    'lightcyan',
-    'paleturquoise',
-    'skyblue',
+    'royalblue',
     'cornflowerblue',
-    'royalblue'
+    'skyblue',
+    'paleturquoise',
+    'lightcyan',
   ],
 };
 
@@ -168,11 +242,11 @@ palettes[ palettes.length ] = {
     twitter: 'yoksel_en'
   },
   colors: [
-    'royalblue',
-    'blue',
-    'mediumblue',
-    'darkblue',
     'navy',
+    'darkblue',
+    'mediumblue',
+    'blue',
+    'royalblue',
   ],
 };
 
@@ -182,10 +256,24 @@ palettes[ palettes.length ] = {
     github: 'yoksel_en'
   },
   colors: [
-    'orchid',
-    'mediumorchid',
-    'darkorchid',
-    'rebeccapurple',
     'indigo',
+    'rebeccapurple',
+    'darkorchid',
+    'mediumorchid',
+    'orchid',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Orchid',
+  author: {
+    github: 'yoksel_en'
+  },
+  colors: [
+    'darkorchid',
+    'mediumorchid',
+    'orchid',
+    'plum',
+    'thistle',
   ],
 };

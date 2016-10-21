@@ -3,8 +3,7 @@ var palettes = [];
 palettes[ palettes.length ] = {
   title: 'Sunrise',
   author: {
-    twitter: 'yoksel_en',
-    github: ''
+    twitter: 'yoksel_en'
   },
   colors: [
     'purple',
@@ -18,8 +17,7 @@ palettes[ palettes.length ] = {
 palettes[ palettes.length ] = {
   title: 'Bright',
   author: {
-    twitter: 'yoksel_en',
-    github: ''
+    twitter: 'yoksel_en'
   },
   colors: [
     'maroon',
@@ -48,7 +46,6 @@ palettes[ palettes.length ] = {
   title: 'Felt pens',
   author: {
     twitter: 'yoksel_en',
-    github: 'yoksel_en'
   },
   colors: [
     'purple',
@@ -60,10 +57,9 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
-  title: 'Felt pens',
+  title: 'Felt pens II',
   author: {
-    twitter: 'yoksel_en',
-    github: 'yoksel_en'
+    twitter: 'yoksel_en'
   },
   colors: [
     'tomato',
@@ -75,10 +71,23 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
+  title: 'Candies',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'salmon',
+    'sandybrown',
+    'gold',
+    'lightgreen',
+    'lightseagreen',
+  ],
+};
+
+palettes[ palettes.length ] = {
   title: 'Pale colors',
   author: {
-    twitter: 'yoksel_en',
-    github: 'yoksel_en'
+    github: 'yoksel'
   },
   colors: [
     'palegoldenrod',
@@ -91,8 +100,7 @@ palettes[ palettes.length ] = {
 palettes[ palettes.length ] = {
   title: 'Pale colors II',
   author: {
-    twitter: 'yoksel_en',
-    github: 'yoksel_en'
+    twitter: 'yoksel_en'
   },
   colors: [
     'salmon',
@@ -107,7 +115,6 @@ palettes[ palettes.length ] = {
   title: 'Pink powder',
   author: {
     twitter: 'yoksel_en',
-    github: 'yoksel_en'
   },
   colors: [
     'indianred',
@@ -122,7 +129,6 @@ palettes[ palettes.length ] = {
   title: 'Moss powder',
   author: {
     twitter: 'yoksel_en',
-    github: 'yoksel_en'
   },
   colors: [
     'rosybrown',
@@ -151,8 +157,7 @@ palettes[ palettes.length ] = {
 palettes[ palettes.length ] = {
   title: 'Sea II',
   author: {
-    twitter: 'yoksel_en',
-    github: ''
+    twitter: 'yoksel_en'
   },
   colors: [
     'darkslategray',
@@ -166,8 +171,7 @@ palettes[ palettes.length ] = {
 palettes[ palettes.length ] = {
   title: 'Red',
   author: {
-    twitter: 'yoksel_en',
-    github: ''
+    twitter: 'yoksel_en'
   },
   colors: [
     'darkred',
@@ -209,8 +213,7 @@ palettes[ palettes.length ] = {
 palettes[ palettes.length ] = {
   title: 'Sand',
   author: {
-    twitter: 'yoksel_en',
-    github: ''
+    twitter: 'yoksel_en'
   },
   colors: [
     'saddlebrown',
@@ -222,10 +225,23 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
+  title: 'Khaki',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'darkolivegreen',
+    'olive',
+    'darkkhaki',
+    'khaki',
+    'lightgoldenrodyellow',
+  ],
+};
+
+palettes[ palettes.length ] = {
   title: 'Sky',
   author: {
-    twitter: 'yoksel_en',
-    github: ''
+    twitter: 'yoksel_en'
   },
   colors: [
     'royalblue',
@@ -253,7 +269,7 @@ palettes[ palettes.length ] = {
 palettes[ palettes.length ] = {
   title: 'Lilac',
   author: {
-    github: 'yoksel_en'
+    twitter: 'yoksel_en'
   },
   colors: [
     'indigo',
@@ -267,7 +283,7 @@ palettes[ palettes.length ] = {
 palettes[ palettes.length ] = {
   title: 'Orchid',
   author: {
-    github: 'yoksel_en'
+    twitter: 'yoksel_en'
   },
   colors: [
     'darkorchid',

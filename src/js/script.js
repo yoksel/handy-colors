@@ -31,10 +31,7 @@ var nav = {
 var tabs = {
   current: null,
   currentClass: 'section--visible',
-  list: {
-    'palettes': $.get('#palettes'),
-    'full-palette': $.get('#full-palette')
-  }
+  list: getElemsList('.section', 'id' )
 };
 
 var newPalette = {
@@ -129,7 +126,7 @@ function initPalettes() {
 function createTinyPalette( paletteItem ) {
   var tinyPalette = $.create('li').addClass(['palettes__item','tiny-palette']);
   var tinyPaletteList = $.create('ul').addClass('tiny-palette__colorviews');
-  var tinyPaletteColorNames = $.create('ul').addClass(['tiny-palette__colornames']).attr({tabindex:"-1"});
+  var tinyPaletteColorNames = $.create('ul').addClass(['tiny-palette__colornames','colornames']).attr({tabindex:"-1"});
   var colors = paletteItem.colors;
 
   var tinyPaletteHeader = createTinyPaletteHeader( paletteItem );
@@ -142,7 +139,7 @@ function createTinyPalette( paletteItem ) {
 
     // Color name
     var li = $.create( 'li' )
-              .addClass(['tiny-palette__colorname'])
+              .addClass(['tiny-palette__colorname','colorname'])
               .html( item );
     tinyPaletteColorNames.append( li );
   });
@@ -292,21 +289,7 @@ function fillColorsList( color, i ) {
 //---------------------------------------------
 
 function printColorsList() {
-  var list = '';
-  var colorsList = $.get('.create-palette__colornames').addClass('colornames');
-  var ul = colorsList.elem.cloneNode( false );
-
-  newPalette.colors.forEach( function ( item ) {
-    var span = $.create( 'span' ).html( item );
-    var li = $.create( 'li' )
-              .addClass(['create-palette__colorname', 'colorname'])
-              .attr({'style': 'color: ' + item})
-              .append( span );
-
-    ul.appendChild( li.elem );
-  });
-
-  colorsList.elem.parentNode.replaceChild( ul, colorsList.elem );
+  createPalOutput.val( newPalette.colors.join(', ') );
 }
 
 //---------------------------------------------
@@ -335,3 +318,14 @@ function addColorToPalette( color ) {
 }
 
 //---------------------------------------------
+
+function getElemsList( selector, key ) {
+  var elems = $.get( selector );
+  var set = {};
+
+  elems.forEach( function ( item ) {
+    set[ item.elem[ key ]] = item;
+  });
+
+  return set;
+}

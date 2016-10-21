@@ -1,27 +1,33 @@
 .main {
   width: 100%;
-  padding-bottom: 210px;
-
-  .no-js & {
-    padding-bottom: 20px;
-  }
 }
 
 .section__title {
   display: none;
-  margin-top: 0;
+  margin: 0;
   text-align: center;
   font-family: $font-family-title;
   font-size: 2.5rem;
 }
 
-.section--palettes,
-.section--full-palette {
+.section {
   padding: 2rem 0;
   display: none;
 
   .no-js & {
     display: block;
+  }
+}
+
+.section--full-palette {
+  margin-bottom: 140px;
+
+  @media ( min-width: $bp-tablet ) {
+    margin-bottom: 110px;
+  }
+
+  .no-js & {
+    padding-bottom: 20px;
   }
 }
 

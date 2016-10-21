@@ -6,17 +6,18 @@
   box-sizing: border-box;
 }
 
-.container,
-.footer {
-  padding: 0 1rem;
-}
-
 .container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  padding: 0 1rem;
 
-  @media ( min-width: $bp-tablet ) {
-    flex-direction: row;
+  // Remove left/right paddings when the container
+  // has enough space around
+  @media ( min-width: $bp-mobile + 30px ) and (max-width: $bp-tablet - 30px ) {
+    padding: 0;
+  }
+  @media ( min-width: $bp-tablet + 30px ) and (max-width: $bp-desktop - 30px ) {
+    padding: 0;
+  }
+  @media ( min-width: $bp-desktop + 30px ) {
+    padding: 0;
   }
 }

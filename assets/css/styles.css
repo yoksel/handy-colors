@@ -472,13 +472,6 @@ H1, H2, H3, H4, H5 {
 .main {
   width: 100%; }
 
-.section__title {
-  display: none;
-  margin: 0;
-  text-align: center;
-  font-family: Roboto, Verdana, sans-serif;
-  font-size: 2.5rem; }
-
 .section {
   padding: 2rem 0;
   display: none; }
@@ -495,6 +488,17 @@ H1, H2, H3, H4, H5 {
 
 .section--visible {
   display: block; }
+
+.section--about {
+  max-width: 650px;
+  margin: 0 auto; }
+
+.section__title {
+  display: none;
+  margin: 0;
+  text-align: center;
+  font-family: Roboto, Verdana, sans-serif;
+  font-size: 2.5rem; }
 
 .footer {
   width: 100%;
@@ -624,10 +628,10 @@ H1, H2, H3, H4, H5 {
     display: block;
     position: absolute;
     z-index: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
     background: currentColor;
     border-radius: 5px;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
@@ -678,7 +682,8 @@ H1, H2, H3, H4, H5 {
 .full-palette-color__view-name,
 .full-palette-color__view-sign {
   transition: all .2s;
-  color: #FFF; }
+  color: #FFF;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); }
 
 .full-palette-color__view-name {
   font-size: 17px;

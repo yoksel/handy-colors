@@ -2,14 +2,6 @@
   width: 100%;
 }
 
-.section__title {
-  display: none;
-  margin: 0;
-  text-align: center;
-  font-family: $font-family-title;
-  font-size: 2.5rem;
-}
-
 .section {
   padding: 2rem 0;
   display: none;
@@ -33,4 +25,17 @@
 
 .section--visible {
   display: block;
+}
+
+.section--about {
+  max-width: $bp-tablet;
+  margin: 0 auto;
+}
+
+.section__title {
+  display: none;
+  margin: 0;
+  text-align: center;
+  font-family: $font-family-title;
+  font-size: 2.5rem;
 }

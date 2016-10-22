@@ -1,10 +1,6 @@
 @mixin container-width {
   width: 100%;
-  max-width: $bp-mobile;
-
-  @media (min-width: $bp-tablet ) {
-    max-width: $bp-tablet;
-  }
+  min-width: $bp-mobile;
 
   @media (min-width: $bp-desktop ) {
     max-width: $bp-desktop;

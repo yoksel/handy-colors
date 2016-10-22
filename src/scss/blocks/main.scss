@@ -20,14 +20,14 @@
 }
 
 .section--full-palette {
-  margin-bottom: 140px;
+  margin-bottom: 150px;
 
   @media ( min-width: $bp-tablet ) {
-    margin-bottom: 110px;
+    margin-bottom: 140px;
   }
 
   .no-js & {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
 }
 

@@ -222,12 +222,22 @@ function addPaletteAction() {
 
 function initColorViews() {
   colorsViews.forEach( function ( item, i ) {
+    item.color = item.elem.dataset.color;
+    var name = $.create('span')
+      .addClass('full-palette-color__view-name')
+      .html( item.color );
+    var sign = $.create('span')
+      .addClass('full-palette-color__view-sign')
+    var inner = $.create('span')
+      .addClass('full-palette-color__view-inner')
+      .append( sign )
+      .append( name );
+    item.append( inner );
 
     item.elem.onclick = function () {
-      var color = this.dataset.color;
-      fillColorsList( color );
+      fillColorsList( item.color );
       printColorsList();
-      addColorToPalette( color );
+      addColorToPalette( item.color );
       setCurrentColor();
     };
   });

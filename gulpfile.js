@@ -25,7 +25,7 @@ gulp.task('sass', function() {
           'last 2 Opera versions',
           'last 2 Edge versions'
           ]}),
-        mqpacker()
+        // mqpacker() // switch off cause breaks order
     ];
 
   console.log('⬤  Run ' + colors.yellow('Sass') +

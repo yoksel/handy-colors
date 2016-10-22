@@ -796,14 +796,12 @@ H1, H2, H3, H4, H5 {
   font-size: 14px;
   font-style: italic;
   color: #777; }
-  @media (min-width: 650px) {
+  @media (min-width: 500px) {
     .create-palette__output {
-      height: 4.5em;
-      font-size: 15px; } }
-  @media (min-width: 1100px) {
+      height: 4.5em; } }
+  @media (min-width: 800px) {
     .create-palette__output {
-      height: 2.5em;
-      font-size: 15px; } }
+      height: 2.5em; } }
 
 .palettes__list {
   display: flex;

@@ -102,12 +102,10 @@ $crp-inner-radius: 5px;
   font-style: italic;
   color: #777;
 
-  @media ( min-width: $bp-tablet ) {
+  @media ( min-width: 500px ) {
     height: 4.5em;
-    font-size: 15px;
   }
-  @media ( min-width: $bp-desktop ) {
+  @media ( min-width: 800px ) {
     height: 2.5em;
-    font-size: 15px;
   }
 }

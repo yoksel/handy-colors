@@ -187,7 +187,7 @@ function getTinyPaletteAuthor( paletteItem ) {
   }
   else if ( authorProfiles.github ) {
     var name = authorProfiles.github;
-    var link = 'https://gist.github.com/' + authorProfiles.github;
+    var link = 'https://github.com/' + authorProfiles.github;
   }
 
   if ( name ) {

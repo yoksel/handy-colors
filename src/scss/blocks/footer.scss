@@ -2,31 +2,10 @@
   @include container-width;
 
   display: flex;
+  justify-content: space-between;
 
-  margin: 1rem auto;
-  padding: .5rem;
-
-  background: beige;
-  border: 1px solid rgba(0,0,0,.1);
-
+  margin: 2rem auto 4rem;
+  padding: 2rem 1rem 0;
+  border-top: 1px solid $color-gray-75;
+  font-size: 14px;
 }
-
-  .footer__items {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    width: 100%;
-
-    @media ( max-width: $bp-tablet ) {
-      flex-direction: column;
-    }
-  }
-
-  .socials {
-
-  }
-    .socials__item {
-      display: inline-block;
-      margin: 0 .5rem;
-    }

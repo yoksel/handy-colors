@@ -20,6 +20,11 @@ $crp-inner-radius: 5px;
 .create-palette {
   @include container-width;
   margin: 0 auto;
+
+  @media ( min-width: $bp-desktop ) {
+    box-sizing: border-box;
+    padding: 0 1rem;
+  }
 }
 
 .create-palette__title {

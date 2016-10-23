@@ -12,15 +12,7 @@
 }
 
 .section--full-palette {
-  margin-bottom: 150px;
-
-  @media ( min-width: $bp-tablet ) {
-    margin-bottom: 140px;
-  }
-
-  .no-js & {
-    margin-bottom: 20px;
-  }
+  // margin-bottom: 150px;
 }
 
 .section--visible {

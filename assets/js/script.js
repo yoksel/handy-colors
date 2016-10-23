@@ -12,6 +12,11 @@ var createPalWrapper = $.get('.create-palette-wrapper');
 var createPalColors = $.get('.' + cls.createPalColor);
 var createPalOutput = $.get('.create-palette__output');
 
+var colorsViewsSet = {
+  selectedClass: 'full-palette-color__view--selected',
+  selectedList: []
+};
+
 var palettesSet = {
   current: null,
   currentClass: 'tiny-palette__colornames--current',
@@ -235,10 +240,10 @@ function initColorViews() {
     item.append( inner );
 
     item.elem.onclick = function () {
-      fillColorsList( item.color );
+
+      setUnsetColor( item );
+      setCreatePalCurrentColor();
       printColorsList();
-      addColorToPalette( item.color );
-      setCurrentColor();
     };
   });
 }
@@ -281,7 +286,7 @@ function initCreatePalette() {
     item.elem.onclick = function ( ev ) {
       ev.stopPropagation();
       newPalette.isCurrentJumping = false;
-      setCurrentColor( i );
+      setCreatePalCurrentColor( i );
     };
   });
 
@@ -292,28 +297,69 @@ function initCreatePalette() {
 
 //---------------------------------------------
 
-function fillColorsList( color, i ) {
-  newPalette.colors[ newPalette.currentPos ] = color;
+function setUnsetColor( item ) {
+  if ( newPalette.colors[ newPalette.currentPos ] === item.color ) {
+    newPalette.colors[ newPalette.currentPos ] = undefined;
+    setColorInPalette( '' );
+    colorsViewsSet.selectedList[ newPalette.currentPos ] = null;
+
+    unsetClassIfNoColor( item );
+  }
+  else {
+    var oldItem = colorsViewsSet.selectedList[ newPalette.currentPos ];
+
+    colorsViewsSet.selectedList[ newPalette.currentPos ] = item;
+    newPalette.colors[ newPalette.currentPos ] = item.color;
+    item.addClass( colorsViewsSet.selectedClass );
+    setColorInPalette( item.color );
+
+    unsetClassIfNoColor( oldItem );
+  }
+}
+
+//---------------------------------------------
+
+function unsetClassIfNoColor( item ) {
+  if ( !item ) {
+    return;
+  }
+
+  var isColorInPalette = newPalette.colors.indexOf( item.color );
+
+  if ( isColorInPalette < 0 ) {
+    item.removeClass( colorsViewsSet.selectedClass );
+  }
 }
 
 //---------------------------------------------
 
 function printColorsList() {
-  createPalOutput.val( newPalette.colors.join(', ') );
+  var outList = newPalette.colors.filter( removeEmptyItems )
+  createPalOutput.val( outList.join(', ') );
 }
+
 
 //---------------------------------------------
 
-function setCurrentColor( i ) {
+function setCreatePalCurrentColor( i ) {
+  // Remove currentClass from previous current
   if ( newPalette.currentElem ) {
     newPalette.currentElem.removeClass( cls.createPalColorCurrent );
   }
 
+  // Set particular current
   if ( i >= 0 ) {
     newPalette.currentPos = i;
   }
-  else if ( newPalette.colors.length < createPalColors.length && newPalette.isCurrentJumping !== false ){
+  // Or jump to the next
+  else if ( newPalette.colors.length < createPalColors.length
+            && newPalette.isCurrentJumping !== false ){
     newPalette.currentPos++;
+
+    // If the end was reached, stop jumping
+    if ( newPalette.currentPos === createPalColors.length - 1 ) {
+      newPalette.isCurrentJumping = false;
+    }
   }
 
   newPalette.currentElem = createPalColors[ newPalette.currentPos ];
@@ -322,7 +368,7 @@ function setCurrentColor( i ) {
 
 //---------------------------------------------
 
-function addColorToPalette( color ) {
+function setColorInPalette( color ) {
   var target = newPalette.activeElem || newPalette.currentElem;
   target.elem.style.backgroundColor = color;
 }
@@ -338,4 +384,10 @@ function getElemsList( selector, key ) {
   });
 
   return set;
+}
+
+//---------------------------------------------
+
+function removeEmptyItems ( item ) {
+  return item ? true : false;
 }

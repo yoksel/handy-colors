@@ -15,6 +15,20 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
+  title: 'Sunrise II',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'tomato',
+    'coral',
+    'darkorange',
+    'orange',
+    'gold'
+  ],
+};
+
+palettes[ palettes.length ] = {
   title: 'Bright',
   author: {
     twitter: 'yoksel_en'
@@ -108,6 +122,20 @@ palettes[ palettes.length ] = {
     'darkseagreen',
     'cadetblue',
     'darkslateblue',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Warm and cold',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'indianred',
+    'salmon',
+    'palegoldenrod',
+    'cadetblue',
+    'teal',
   ],
 };
 

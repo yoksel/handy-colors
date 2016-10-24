@@ -1,4 +1,6 @@
-.palettes {}
+.palettes {
+
+}
 
 .palettes__list {
   display: flex;
@@ -6,6 +8,7 @@
   justify-content: space-between;
   align-content: flex-start;
   align-items: flex-start;
+  margin: 0 -.5rem;
 }
 
 .palettes__item {
@@ -52,12 +55,17 @@
   flex-basis: 100%;
   height: 4rem;
   box-sizing: border-box;
-  border-radius: 5px;
   overflow: hidden;
+  border-radius: 5px;
   border: 1px solid $color-gray-75;
 
   & > * {
     flex-grow: 1;
+  }
+
+  /* Remove 1px whitespace at the end of the list */
+  & > :last-child {
+    margin-right: -1px;
   }
 }
 

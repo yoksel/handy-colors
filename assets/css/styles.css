@@ -370,11 +370,12 @@ BODY {
   color: #111; }
 
 A {
-  color: darkcyan; }
+  transition: color .2s;
+  color: lightseagreen; }
   A:visited {
-    color: lightseagreen; }
+    color: darkcyan; }
   A:hover {
-    color: cadetblue; }
+    color: mediumaquamarine; }
 
 UL {
   margin: 0;
@@ -468,7 +469,7 @@ H1, H2, H3, H4, H5 {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
     text-shadow: none; }
     .nav__item--current:link, .nav__item--current:visited {
-      color: darkcyan; }
+      color: lightseagreen; }
 
 .main {
   width: 100%; }

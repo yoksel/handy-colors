@@ -5,6 +5,7 @@ BODY {
 }
 
 A {
+  transition: color .2s;
   color: $color-link;
 
   &:visited {

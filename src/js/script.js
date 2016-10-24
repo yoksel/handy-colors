@@ -131,22 +131,16 @@ function initPalettes() {
 function createTinyPalette( paletteItem ) {
   var tinyPalette = $.create('li').addClass(['palettes__item','tiny-palette']);
   var tinyPaletteList = $.create('ul').addClass('tiny-palette__colorviews');
-  var tinyPaletteColorNames = $.create('ul').addClass(['tiny-palette__colornames','colornames']).attr({tabindex:"-1"});
+  var tinyPaletteColorNames = $.create('textarea').addClass(['tiny-palette__colornames']).attr({tabindex:"-1"});
   var colors = paletteItem.colors;
+  tinyPaletteColorNames.val( paletteItem.colors.filter( removeEmptyItems).join(', ') );
 
   var tinyPaletteHeader = createTinyPaletteHeader( paletteItem );
   tinyPalette.append( tinyPaletteHeader );
 
   colors.forEach( function ( item ) {
-    // Color view
     var tinyPaletteItem = $.create('li').addClass('tiny-palette__colorview').attr('style','background: ' + item);
     tinyPaletteList.append( tinyPaletteItem );
-
-    // Color name
-    var li = $.create( 'li' )
-              .addClass(['tiny-palette__colorname','colorname'])
-              .html( item );
-    tinyPaletteColorNames.append( li );
   });
 
   tinyPalette.append( tinyPaletteList );
@@ -201,15 +195,6 @@ function getTinyPaletteAuthor( paletteItem ) {
 function addPaletteAction() {
   palettesSet.colorNamesItems.forEach( function ( item ) {
     item.elem.onclick = function () {
-
-      if ( palettesSet.current !== null ) {
-        palettesSet.current.removeClass( palettesSet.currentClass )
-      }
-
-      if ( palettesSet.current === item ) {
-        palettesSet.current = null;
-        return;
-      }
       palettesSet.current = item;
       palettesSet.current.addClass( palettesSet.currentClass );
     };

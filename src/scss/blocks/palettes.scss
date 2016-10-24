@@ -10,7 +10,7 @@
 
 .palettes__item {
   position: relative;
-  flex-basis: 100%;
+  flex-basis: 270px;
 
   display: flex;
   flex-wrap: wrap;
@@ -18,12 +18,12 @@
   margin: .5rem .5rem 1rem;
   transition: all .5s;
 
-  @media ( min-width: $bp-tablet ) {
-    flex-basis: 45%;
-  }
-  @media ( min-width: $bp-desktop ) {
-    flex-basis: 30%;
-  }
+  // @media ( min-width: $bp-tablet ) {
+  //   flex-basis: %;
+  // }
+  // @media ( min-width: $bp-desktop ) {
+  //   flex-basis: 30%;
+  // }
 }
 
 .tiny-palette__header {
@@ -64,10 +64,8 @@
   bottom: 0;
   width: 100%;
   height: 4rem;
+  overflow: hidden;
   box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   padding: .5rem;
   background: hsla(0, 0, 100%, .4);
   border: 4px solid $color-black-op10;
@@ -82,36 +80,11 @@
   &--current {
     opacity: 1;
   }
-
-  @media ( min-width: $bp-desktop ) {
-    height: auto;
-    width: auto;
-    min-height: 2rem;
-    bottom: 1rem;
-    left: 1px;
-    right: 1px;
-    padding: 0;
-    justify-content: space-around;
-    border: 0;
-    border-radius: 0;
-  }
 }
 
 .tiny-palette__colorname {
   margin: 0 .5rem 0 0;
 
-  @media ( min-width: $bp-desktop ) {
-    margin: 0;
-    text-align: center;
-  }
-
-  &:after {
-    content: ',';
-
-    @media ( min-width: $bp-desktop ) {
-      content: none;
-    }
-  }
   &:last-child:after {
     content: none;
   }

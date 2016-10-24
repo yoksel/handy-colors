@@ -824,18 +824,12 @@ H1, H2, H3, H4, H5 {
 
 .palettes__item {
   position: relative;
-  flex-basis: 100%;
+  flex-basis: 270px;
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
   margin: .5rem .5rem 1rem;
   transition: all .5s; }
-  @media (min-width: 650px) {
-    .palettes__item {
-      flex-basis: 45%; } }
-  @media (min-width: 1100px) {
-    .palettes__item {
-      flex-basis: 30%; } }
 
 .tiny-palette__header {
   margin-bottom: .1rem;
@@ -868,10 +862,8 @@ H1, H2, H3, H4, H5 {
   bottom: 0;
   width: 100%;
   height: 4rem;
+  overflow: hidden;
   box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   padding: .5rem;
   background: rgba(255, 255, 255, 0.4);
   border: 4px solid rgba(0, 0, 0, 0.1);
@@ -884,30 +876,9 @@ H1, H2, H3, H4, H5 {
   cursor: pointer; }
   .tiny-palette__colornames--current {
     opacity: 1; }
-  @media (min-width: 1100px) {
-    .tiny-palette__colornames {
-      height: auto;
-      width: auto;
-      min-height: 2rem;
-      bottom: 1rem;
-      left: 1px;
-      right: 1px;
-      padding: 0;
-      justify-content: space-around;
-      border: 0;
-      border-radius: 0; } }
 
 .tiny-palette__colorname {
   margin: 0 .5rem 0 0; }
-  @media (min-width: 1100px) {
-    .tiny-palette__colorname {
-      margin: 0;
-      text-align: center; } }
-  .tiny-palette__colorname:after {
-    content: ','; }
-    @media (min-width: 1100px) {
-      .tiny-palette__colorname:after {
-        content: none; } }
   .tiny-palette__colorname:last-child:after {
     content: none; }
 

@@ -829,6 +829,7 @@ H1, H2, H3, H4, H5 {
   flex-wrap: wrap;
   flex-grow: 1;
   margin: .5rem .5rem 1rem;
+  cursor: pointer;
   transition: all .5s; }
 
 .tiny-palette {
@@ -895,15 +896,9 @@ H1, H2, H3, H4, H5 {
   opacity: 0;
   outline: none;
   transition: opacity .3s;
-  pointer-events: none;
   cursor: pointer; }
   .tiny-palette--current .tiny-palette__colornames {
     opacity: 1; }
-
-.tiny-palette__colorname {
-  margin: 0 .5rem 0 0; }
-  .tiny-palette__colorname:last-child:after {
-    content: none; }
 
 .section--about H3 {
   margin: 1em 0 .5em;

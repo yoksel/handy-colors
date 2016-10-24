@@ -163,6 +163,8 @@ function createTinyPalette( paletteItem ) {
   tinyPalette.append( colorList );
   tinyPalette.append( colorNamesWrapper );
 
+  tinyPalette.textarea = colorNamesOut;
+
   return tinyPalette;
 }
 
@@ -220,13 +222,21 @@ function addPaletteAction() {
       palettesSet.current.addClass( palettesSet.currentClass );
     };
 
+    item.textarea.elem.onblur = function () {
+      unsetCurrentPalette();
+    }
+
     item.elem.onblur = function () {
-      if ( palettesSet.current !== null ) {
-        palettesSet.current.removeClass( palettesSet.currentClass );
-        palettesSet.current = null;
-      }
+      unsetCurrentPalette()
     };
   });
+}
+
+function unsetCurrentPalette() {
+  if ( palettesSet.current !== null ) {
+    palettesSet.current.removeClass( palettesSet.currentClass );
+    palettesSet.current = null;
+  }
 }
 
 //---------------------------------------------
@@ -297,6 +307,7 @@ function setCurrentControl( item ) {
 
   storage.fullPaletteState = item.elem.value;
 }
+
 //---------------------------------------------
 
 function initCreatePalette() {

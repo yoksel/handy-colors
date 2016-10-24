@@ -11,11 +11,11 @@
 .palettes__item {
   position: relative;
   flex-basis: 270px;
-
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
   margin: .5rem .5rem 1rem;
+  cursor: pointer;
   transition: all .5s;
 }
 
@@ -95,18 +95,9 @@
   opacity: 0;
   outline: none;
   transition: opacity .3s;
-  pointer-events: none;
   cursor: pointer;
 
   .tiny-palette--current & {
     opacity: 1;
-  }
-}
-
-.tiny-palette__colorname {
-  margin: 0 .5rem 0 0;
-
-  &:last-child:after {
-    content: none;
   }
 }

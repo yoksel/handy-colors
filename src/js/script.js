@@ -139,7 +139,8 @@ function createTinyPalette( paletteItem ) {
     .addClass(['tiny-palette__colornames-hidden-text'])
     .attr('style','display: none');
   var colorNamesOut = $.create('textarea')
-    .addClass(['tiny-palette__colornames']);
+    .addClass(['tiny-palette__colornames'])
+    .attr('spellcheck', 'false');
 
   var colors = paletteItem.colors;
   var colorsText = colors.filter( removeEmptyItems).join(', ');
@@ -231,6 +232,8 @@ function addPaletteAction() {
     };
   });
 }
+
+//---------------------------------------------
 
 function unsetCurrentPalette() {
   if ( palettesSet.current !== null ) {

@@ -364,6 +364,9 @@ textarea {
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
+HTML {
+  font-size: 14px; }
+
 BODY {
   background: #FFF;
   font: 16px/1.6 Trebuchet MS, Verdana, sans-serif;

@@ -36,9 +36,11 @@ $bp-full-palette-XL: 1210px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  padding-bottom: 25px; /* to move up on mobile  */
 
   @media ( min-width: $bp-full-palette-S ) {
     height: 3380px;
+    padding-bottom: 0;
   }
 
   @media ( min-width: $bp-full-palette-M ) {

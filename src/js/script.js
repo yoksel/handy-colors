@@ -1,5 +1,6 @@
 var $ = tinyLib;
 var doc = document;
+var storage = window.localStorage;
 
 var cls = {
   createPalColor: 'create-palette__color',
@@ -49,6 +50,7 @@ var fullPaletteControls = {
   current: null,
   currentClass: 'full-palette__control--current',
   items: $.get('.full-palette__control'),
+  list: getElemsList('.full-palette__control', 'value' ),
   target: $.get('.full-palette__colors'),
   targetState: '',
   targetStateClass: 'full-palette__colors--tiles'
@@ -255,32 +257,46 @@ function initColorViews() {
 //---------------------------------------------
 
 function initPaletteControls() {
-  fullPaletteControls.current = fullPaletteControls.items[0];
-  fullPaletteControls.current.addClass( fullPaletteControls.currentClass );
-  targetState = fullPaletteControls.current.val();
+  var currentItem;
+
+  if ( storage.fullPaletteState && storage.fullPaletteState !== 'undefined' ) {
+    currentItem = fullPaletteControls.list[ storage.fullPaletteState ];
+  }
+  else {
+    currentItem = fullPaletteControls.items[0];
+  }
+
+  setCurrentControl( currentItem );
 
   fullPaletteControls.items.forEach( function ( item ) {
 
     item.elem.onclick = function () {
+
       if ( fullPaletteControls.current !== null ) {
         fullPaletteControls.current.removeClass( fullPaletteControls.currentClass );
       }
 
-      fullPaletteControls.current = item;
-      fullPaletteControls.current.addClass( fullPaletteControls.currentClass );
-
-      fullPaletteControls.targetState = this.value;
-
-      if ( fullPaletteControls.targetState === 'tiles' ) {
-        fullPaletteControls.target.addClass( fullPaletteControls.targetStateClass );
-      }
-      else {
-        fullPaletteControls.target.removeClass( fullPaletteControls.targetStateClass );
-      }
+      setCurrentControl( item );
     }
   });
 }
 
+//---------------------------------------------
+
+function setCurrentControl( item ) {
+  fullPaletteControls.current = item;
+  fullPaletteControls.current.addClass( fullPaletteControls.currentClass );
+
+  fullPaletteControls.targetState = item.elem.value;
+  if ( fullPaletteControls.targetState === 'tiles' ) {
+    fullPaletteControls.target.addClass( fullPaletteControls.targetStateClass );
+  }
+  else {
+    fullPaletteControls.target.removeClass( fullPaletteControls.targetStateClass );
+  }
+
+  storage.fullPaletteState = item.elem.value;
+}
 //---------------------------------------------
 
 function initCreatePalette() {
@@ -341,7 +357,6 @@ function printColorsList() {
   var outList = newPalette.colors.filter( removeEmptyItems )
   createPalOutput.val( outList.join(', ') );
 }
-
 
 //---------------------------------------------
 

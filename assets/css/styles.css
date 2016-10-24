@@ -831,6 +831,12 @@ H1, H2, H3, H4, H5 {
   margin: .5rem .5rem 1rem;
   transition: all .5s; }
 
+.tiny-palette {
+  position: relative;
+  outline: 0; }
+  .tiny-palette--current {
+    z-index: 2; }
+
 .tiny-palette__header {
   margin-bottom: .1rem;
   display: flex;
@@ -857,24 +863,41 @@ H1, H2, H3, H4, H5 {
   .tiny-palette__colorviews > * {
     flex-grow: 1; }
 
-.tiny-palette__colornames {
+.tiny-palette__colornames-wrapper {
   position: absolute;
-  bottom: 0;
+  left: 0;
+  bottom: 2rem;
   width: 100%;
-  height: 4rem;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: .5rem;
-  background: rgba(255, 255, 255, 0.4);
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  opacity: 0;
-  outline: 0;
   font-size: 13px;
   font-style: italic;
+  transform: translateY(50%); }
+
+.tiny-palette__colornames-hidden-text {
+  display: block !important;
+  min-height: 2rem;
+  box-sizing: border-box;
+  padding: .25rem;
+  border: 4px solid transparent;
+  visibility: hidden; }
+
+.tiny-palette__colornames {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: .25rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  outline: none;
   transition: opacity .3s;
+  pointer-events: none;
   cursor: pointer; }
-  .tiny-palette__colornames--current {
+  .tiny-palette--current .tiny-palette__colornames {
     opacity: 1; }
 
 .tiny-palette__colorname {

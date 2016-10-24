@@ -19,11 +19,10 @@ var colorsViewsSet = {
 
 var palettesSet = {
   current: null,
-  currentClass: 'tiny-palette__colornames--current',
+  currentClass: 'tiny-palette--current',
   wrapper: $.get('.palettes'),
   list: $.create('ul').addClass('palettes__list'),
-  items: [],
-  colorNamesItems: []
+  items: []
 };
 
 var nav = {
@@ -129,23 +128,38 @@ function initPalettes() {
 //---------------------------------------------
 
 function createTinyPalette( paletteItem ) {
-  var tinyPalette = $.create('li').addClass(['palettes__item','tiny-palette']);
-  var tinyPaletteList = $.create('ul').addClass('tiny-palette__colorviews');
-  var tinyPaletteColorNames = $.create('textarea').addClass(['tiny-palette__colornames']).attr({tabindex:"-1"});
-  var colors = paletteItem.colors;
-  tinyPaletteColorNames.val( paletteItem.colors.filter( removeEmptyItems).join(', ') );
+  var tinyPalette = $.create('li')
+    .addClass(['palettes__item','tiny-palette'])
+    .attr({tabindex:"-1"});
+  var colorList = $.create('ul').addClass('tiny-palette__colorviews');
 
-  var tinyPaletteHeader = createTinyPaletteHeader( paletteItem );
-  tinyPalette.append( tinyPaletteHeader );
+  var colorNamesHiddenText = $.create('div')
+    .addClass(['tiny-palette__colornames-hidden-text'])
+    .attr('style','display: none');
+  var colorNamesOut = $.create('textarea')
+    .addClass(['tiny-palette__colornames']);
+
+  var colors = paletteItem.colors;
+  var colorsText = colors.filter( removeEmptyItems).join(', ');
+  colorNamesOut.val( colorsText );
+  colorNamesHiddenText.html( colorsText );
+
+  var colorNamesWrapper = $.create('div')
+    .addClass(['tiny-palette__colornames-wrapper'])
+    .append( colorNamesHiddenText )
+    .append( colorNamesOut );
+
+
+  var header = createTinyPaletteHeader( paletteItem );
+  tinyPalette.append( header );
 
   colors.forEach( function ( item ) {
-    var tinyPaletteItem = $.create('li').addClass('tiny-palette__colorview').attr('style','background: ' + item);
-    tinyPaletteList.append( tinyPaletteItem );
+    var item = $.create('li').addClass('tiny-palette__colorview').attr('style','background: ' + item);
+    colorList.append( item );
   });
 
-  tinyPalette.append( tinyPaletteList );
-  tinyPalette.append( tinyPaletteColorNames );
-  palettesSet.colorNamesItems.push( tinyPaletteColorNames );
+  tinyPalette.append( colorList );
+  tinyPalette.append( colorNamesWrapper );
 
   return tinyPalette;
 }
@@ -193,8 +207,13 @@ function getTinyPaletteAuthor( paletteItem ) {
 //---------------------------------------------
 
 function addPaletteAction() {
-  palettesSet.colorNamesItems.forEach( function ( item ) {
+  palettesSet.items.forEach( function ( item ) {
+
     item.elem.onclick = function () {
+      if ( palettesSet.current !== null ) {
+        palettesSet.current.removeClass( palettesSet.currentClass );
+      }
+
       palettesSet.current = item;
       palettesSet.current.addClass( palettesSet.currentClass );
     };

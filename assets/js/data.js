@@ -57,6 +57,34 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
+  title: 'Bright II',
+  author: {
+    twitter: 'yoksel_en',
+  },
+  colors: [
+    'purple',
+    'crimson',
+    'gold',
+    'teal',
+    'darkslategray',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Bright III',
+  author: {
+    twitter: 'yoksel_en',
+  },
+  colors: [
+    'tomato',
+    'darkorange',
+    'gold',
+    'mediumseagreen',
+    'seagreen',
+  ],
+};
+
+palettes[ palettes.length ] = {
   title: 'Autumn',
   author: {
     twitter: 'yoksel_en'
@@ -71,16 +99,44 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
-  title: 'Felt pens',
+  title: 'Autumn II',
   author: {
-    twitter: 'yoksel_en',
+    twitter: 'yoksel_en'
   },
   colors: [
-    'purple',
-    'crimson',
+    'darkgoldenrod',
+    'goldenrod',
+    'khaki',
+    'olive',
+    'darkolivegreen',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Autumn III',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'sienna',
+    'peru',
+    'khaki',
+    'darkkhaki',
+    'olive',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Felt pens I',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'tomato',
     'gold',
-    'teal',
-    'darkslategray',
+    'yellowgreen',
+    'mediumaquamarine',
+    'cadetblue'
   ],
 };
 
@@ -97,6 +153,22 @@ palettes[ palettes.length ] = {
     'darkslateblue',
   ],
 };
+
+palettes[ palettes.length ] = {
+  title: 'Felt pens III',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'tomato',
+    'darkorange',
+    'gold',
+    'yellowgreen',
+    'lightseagreen',
+    'teal'
+  ],
+};
+
 
 palettes[ palettes.length ] = {
   title: 'Candies',
@@ -253,6 +325,20 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
+  title: 'Orange',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'tomato',
+    'coral',
+    'darkorange',
+    'sandybrown',
+    'navajowhite',
+  ],
+};
+
+palettes[ palettes.length ] = {
   title: 'Yellow',
   author: {
     twitter: 'yoksel_en'
@@ -323,20 +409,6 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
-  title: 'Lilac',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'indigo',
-    'rebeccapurple',
-    'darkorchid',
-    'mediumorchid',
-    'orchid',
-  ],
-};
-
-palettes[ palettes.length ] = {
   title: 'Orchid',
   author: {
     twitter: 'yoksel_en'
@@ -347,5 +419,19 @@ palettes[ palettes.length ] = {
     'orchid',
     'plum',
     'thistle',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Lilac',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'indigo',
+    'rebeccapurple',
+    'darkorchid',
+    'mediumorchid',
+    'orchid',
   ],
 };

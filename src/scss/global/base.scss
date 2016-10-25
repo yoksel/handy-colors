@@ -8,6 +8,15 @@ BODY {
     color: $color-font;
 }
 
+::-moz-selection {
+  background: gold;
+  color: #000;
+}
+::selection {
+  background: gold;
+  color: #000;
+}
+  
 A {
   transition: color .2s;
   color: $color-link;

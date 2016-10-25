@@ -867,7 +867,7 @@ H1, H2, H3, H4, H5 {
   overflow: hidden;
   border-radius: 5px;
   border: 1px solid #bfbfbf;
-  /* Remove 1px whitespace at the end of the list*/ }
+  /* Remove 1px whitespace at the end of the list */ }
   .tiny-palette__colorviews > * {
     flex-grow: 1; }
   .tiny-palette__colorviews > :last-child {

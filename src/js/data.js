@@ -20,6 +20,20 @@ palettes[ palettes.length ] = {
     twitter: 'yoksel_en'
   },
   colors: [
+    'crimson',
+    'tomato',
+    'coral',
+    'orange',
+    'gold'
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Sunrise III',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
     'tomato',
     'coral',
     'darkorange',
@@ -207,6 +221,20 @@ palettes[ palettes.length ] = {
     'firebrick',
     'crimson',
     'red',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Red II',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'firebrick',
+    'crimson',
+    'tomato',
+    'coral',
+    'lightsalmon',
   ],
 };
 

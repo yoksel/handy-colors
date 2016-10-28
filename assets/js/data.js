@@ -44,7 +44,7 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
-  title: 'Candies bright',
+  title: 'Bright candies',
   author: {
     twitter: 'yoksel_en',
   },
@@ -58,7 +58,7 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
-  title: 'Candies pale',
+  title: 'Pale candies',
   author: {
     twitter: 'yoksel_en'
   },

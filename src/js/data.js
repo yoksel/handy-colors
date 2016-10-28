@@ -1,6 +1,174 @@
 var palettes = [];
 
 palettes[ palettes.length ] = {
+  title: 'Felt pens I',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'tomato',
+    'gold',
+    'yellowgreen',
+    'mediumaquamarine',
+    'cadetblue'
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Felt pens II',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'tomato',
+    'yellow',
+    'yellowgreen',
+    'lightseagreen',
+    'darkslateblue',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Felt pens III',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'tomato',
+    'darkorange',
+    'gold',
+    'yellowgreen',
+    'lightseagreen',
+    'teal'
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Candies bright',
+  author: {
+    twitter: 'yoksel_en',
+  },
+  colors: [
+    'tomato',
+    'darkorange',
+    'gold',
+    'mediumseagreen',
+    'seagreen',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Candies pale',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'salmon',
+    'sandybrown',
+    'gold',
+    'lightgreen',
+    'lightseagreen',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Pale colors',
+  author: {
+    github: 'yoksel'
+  },
+  colors: [
+    'palegoldenrod',
+    'paleturquoise',
+    'palegreen',
+    'palevioletred',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Pale colors II',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'salmon',
+    'palegoldenrod',
+    'darkseagreen',
+    'cadetblue',
+    'darkslateblue',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Warm and cold',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'indianred',
+    'salmon',
+    'palegoldenrod',
+    'cadetblue',
+    'teal',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Mossy powder',
+  author: {
+    twitter: 'yoksel_en',
+  },
+  colors: [
+    'rosybrown',
+    'peachpuff',
+    'lightgoldenrodyellow',
+    'khaki',
+    'darkkhaki',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Autumn',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'sandybrown',
+    'gold',
+    'darkkhaki',
+    'olive',
+    'darkolivegreen',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Autumn II',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'darkgoldenrod',
+    'goldenrod',
+    'khaki',
+    'olive',
+    'darkolivegreen',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Autumn III',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'sienna',
+    'peru',
+    'khaki',
+    'darkkhaki',
+    'olive',
+  ],
+};
+
+palettes[ palettes.length ] = {
   title: 'Sunrise',
   author: {
     twitter: 'yoksel_en'
@@ -71,189 +239,6 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
-  title: 'Bright III',
-  author: {
-    twitter: 'yoksel_en',
-  },
-  colors: [
-    'tomato',
-    'darkorange',
-    'gold',
-    'mediumseagreen',
-    'seagreen',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Autumn',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'sandybrown',
-    'gold',
-    'darkkhaki',
-    'olive',
-    'darkolivegreen',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Autumn II',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'darkgoldenrod',
-    'goldenrod',
-    'khaki',
-    'olive',
-    'darkolivegreen',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Autumn III',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'sienna',
-    'peru',
-    'khaki',
-    'darkkhaki',
-    'olive',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Felt pens I',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'tomato',
-    'gold',
-    'yellowgreen',
-    'mediumaquamarine',
-    'cadetblue'
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Felt pens II',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'tomato',
-    'yellow',
-    'yellowgreen',
-    'lightseagreen',
-    'darkslateblue',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Felt pens III',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'tomato',
-    'darkorange',
-    'gold',
-    'yellowgreen',
-    'lightseagreen',
-    'teal'
-  ],
-};
-
-
-palettes[ palettes.length ] = {
-  title: 'Candies',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'salmon',
-    'sandybrown',
-    'gold',
-    'lightgreen',
-    'lightseagreen',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Pale colors',
-  author: {
-    github: 'yoksel'
-  },
-  colors: [
-    'palegoldenrod',
-    'paleturquoise',
-    'palegreen',
-    'palevioletred',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Pale colors II',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'salmon',
-    'palegoldenrod',
-    'darkseagreen',
-    'cadetblue',
-    'darkslateblue',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Warm and cold',
-  author: {
-    twitter: 'yoksel_en'
-  },
-  colors: [
-    'indianred',
-    'salmon',
-    'palegoldenrod',
-    'cadetblue',
-    'teal',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Pink powder',
-  author: {
-    twitter: 'yoksel_en',
-  },
-  colors: [
-    'indianred',
-    'lightcoral',
-    'lightsalmon',
-    'peachpuff',
-    'blanchedalmond',
-  ],
-};
-
-palettes[ palettes.length ] = {
-  title: 'Moss powder',
-  author: {
-    twitter: 'yoksel_en',
-  },
-  colors: [
-    'rosybrown',
-    'peachpuff',
-    'lightgoldenrodyellow',
-    'khaki',
-    'darkkhaki',
-  ],
-};
-
-palettes[ palettes.length ] = {
   title: 'Sea I',
   author: {
     twitter: 'yoksel_en',
@@ -317,10 +302,23 @@ palettes[ palettes.length ] = {
   },
   colors: [
     'mediumvioletred',
-    'deeppink',
     'palevioletred',
     'pink',
     'mistyrose',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Pink II',
+  author: {
+    twitter: 'yoksel_en',
+  },
+  colors: [
+    'indianred',
+    'lightcoral',
+    'lightsalmon',
+    'peachpuff',
+    'blanchedalmond',
   ],
 };
 
@@ -339,16 +337,16 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
-  title: 'Yellow',
+  title: 'Brown',
   author: {
     twitter: 'yoksel_en'
   },
   colors: [
-    'goldenrod',
-    'gold',
-    'khaki',
-    'lemonchiffon',
-    'lightyellow',
+    'saddlebrown',
+    'sienna',
+    'chocolate',
+    'sandybrown',
+    'navajowhite',
   ],
 };
 
@@ -358,11 +356,23 @@ palettes[ palettes.length ] = {
     twitter: 'yoksel_en'
   },
   colors: [
-    'saddlebrown',
     'darkgoldenrod',
     'goldenrod',
     'palegoldenrod',
     'lightgoldenrodyellow',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Yellow',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'gold',
+    'yellow',
+    'lemonchiffon',
+    'lightyellow',
   ],
 };
 
@@ -381,16 +391,56 @@ palettes[ palettes.length ] = {
 };
 
 palettes[ palettes.length ] = {
-  title: 'Sky',
+  title: 'Green',
   author: {
     twitter: 'yoksel_en'
   },
   colors: [
-    'royalblue',
-    'cornflowerblue',
+    'darkolivegreen',
+    'olivedrab',
+    'yellowgreen',
+    'greenyellow',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Marine green',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'seagreen',
+    'mediumseagreen',
+    'springgreen',
+    'palegreen',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Marine blue',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'darkslategray',
+    'teal',
+    'lightseagreen',
+    'mediumturquoise',
+    'aquamarine',
+  ],
+};
+
+palettes[ palettes.length ] = {
+  title: 'Sky blue',
+  author: {
+    twitter: 'yoksel_en'
+  },
+  colors: [
+    'steelblue',
     'skyblue',
     'paleturquoise',
     'lightcyan',
+    'aliceblue',
   ],
 };
 
@@ -400,11 +450,11 @@ palettes[ palettes.length ] = {
     twitter: 'yoksel_en'
   },
   colors: [
+    'midnightblue',
     'navy',
     'darkblue',
     'mediumblue',
-    'blue',
-    'royalblue',
+    'blue'
   ],
 };
 

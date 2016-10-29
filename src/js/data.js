@@ -77,10 +77,10 @@ palettes[ palettes.length ] = {
     github: 'yoksel'
   },
   colors: [
+    'rosybrown',
     'palegoldenrod',
-    'paleturquoise',
-    'palegreen',
-    'palevioletred',
+    'darkseagreen',
+    'cadetblue',
   ],
 };
 

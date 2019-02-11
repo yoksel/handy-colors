@@ -372,10 +372,6 @@ BODY {
   font: 16px/1.6 Trebuchet MS, Verdana, sans-serif;
   color: #111; }
 
-::-moz-selection {
-  background: gold;
-  color: #000; }
-
 ::selection {
   background: gold;
   color: #000; }

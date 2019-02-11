@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var include = require("gulp-include");
@@ -24,10 +24,11 @@ gulp.task('sass', function() {
               colors.green('Autoprefixer')
               );
 
-  return sass('src/scss/styles.scss')
+  return gulp.src('src/scss/styles.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(postcss(processors))
     .pipe(gulp.dest('assets/css'))
-    .pipe(reload({ stream:true }))
+    .pipe(browserSync.stream())
 });
 
 // JS
@@ -49,7 +50,7 @@ gulp.task('include', function() {
 });
 
 // WATCH SASS, PREPROCESS AND RELOAD
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', ['include','sass'], function() {
   browserSync({
     server: {
       baseDir: '.'

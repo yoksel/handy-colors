@@ -180,11 +180,11 @@ function createTinyPaletteHeader( paletteItem ) {
 
   header.append( title );
 
-  var author = $.create('span')
-    .addClass('tiny-palette__author')
-    .html( getTinyPaletteAuthor( paletteItem) );
+  // var author = $.create('span')
+  //   .addClass('tiny-palette__author')
+  //   .html( getTinyPaletteAuthor( paletteItem) );
 
-  header.append( author );
+  // header.append( author );
 
   return header;
 }

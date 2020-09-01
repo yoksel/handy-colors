@@ -17,13 +17,8 @@
 
     <div class="container">
       <main class="main">
-        <section class="section section--palettes" id="palettes">
-          <h2 class="section__title">Palettes</h2>
-          <!--=include blocks/palettes.html -->
-        </section>
-
         <section class="section section--full-palette" id="full-palette">
-          <h2 class="section__title">Named colors</h2>
+          <h2 class="section__title visually-hidden">Named colors</h2>
           <!--=include blocks/full-palette.html -->
 
           <div class="create-palette-wrapper">
@@ -31,11 +26,15 @@
           </div>
         </section>
 
-        <section class="section section--about" id="about">
-          <h2 class="section__title">About</h2>
-          <!--=include blocks/about.html -->
+        <section class="section section--palettes" id="palettes">
+          <h2 class="section__title visually-hidden">Palettes</h2>
+          <!--=include blocks/palettes.html -->
         </section>
 
+        <section class="section section--about" id="about">
+          <h2 class="section__title visually-hidden">About</h2>
+          <!--=include blocks/about.html -->
+        </section>
       </main>
     </div>
 

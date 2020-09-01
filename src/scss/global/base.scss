@@ -16,7 +16,7 @@ BODY {
   background: gold;
   color: #000;
 }
-  
+
 A {
   transition: color .2s;
   color: $color-link;
@@ -39,4 +39,16 @@ UL {
 H1, H2, H3, H4, H5 {
   font-family: $font-family-title;
   font-weight: normal;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

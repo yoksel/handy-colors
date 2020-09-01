@@ -45,19 +45,10 @@
 
     <div class="container">
       <main class="main">
-        <section class="section section--palettes" id="palettes">
-          <h2 class="section__title">Palettes</h2>
-          <div class="palettes">
-
-
-          </div>
-
-        </section>
-
         <section class="section section--full-palette" id="full-palette">
-          <h2 class="section__title">Named colors</h2>
+          <h2 class="section__title visually-hidden">Named colors</h2>
           <div class="full-palette">
-            <div class="full-palette__controls">
+            <div class="full-palette__controls" aria-hidden="true">
               <button class="full-palette__control" value="list">
                 <svg class="full-palette__control-icon" width="16" height="16">
                   <use xlink:href="#layout-list"></use>
@@ -69,7 +60,6 @@
                 </svg>
               </button>
             </div>
-
 
             <div class="full-palette__colors">
               <div class="full-palette-color"><span class="full-palette-color__view" style="color: mistyrose;" data-color="mistyrose"></span><span class="full-palette-color__name">mistyrose</span></div>
@@ -243,8 +233,17 @@
           </div>
         </section>
 
+        <section class="section section--palettes" id="palettes">
+          <h2 class="section__title visually-hidden">Palettes</h2>
+          <div class="palettes">
+
+
+          </div>
+
+        </section>
+
         <section class="section section--about" id="about">
-          <h2 class="section__title">About</h2>
+          <h2 class="section__title visually-hidden">About</h2>
           <p>Though named colors are not ordered enough, they are incredibly convenient for creating demos: you needn't run a graphical editor to get some HEX-codes of colors, you needn't any color pickers because you can just type a name of the desired color. Named colors are great time savers!
           </p>
 
@@ -272,7 +271,6 @@
           </ul>
 
         </section>
-
       </main>
     </div>
 

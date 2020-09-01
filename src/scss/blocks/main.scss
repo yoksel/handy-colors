@@ -11,10 +11,6 @@
   }
 }
 
-.section--full-palette {
-  // margin-bottom: 150px;
-}
-
 .section--visible {
   display: block;
 }
@@ -22,12 +18,4 @@
 .section--about {
   max-width: $bp-tablet;
   margin: 0 auto;
-}
-
-.section__title {
-  display: none;
-  margin: 0;
-  text-align: center;
-  font-family: $font-family-title;
-  font-size: 2.5rem;
 }

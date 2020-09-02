@@ -2,5 +2,7 @@
 .sass-cache/
 .publish/
 node_modules/
-build/
 npm-debug.log
+build/
+assets/
+index.html

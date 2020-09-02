@@ -105,8 +105,8 @@ function initNav() {
     nav.list[ target ] = item;
 
     item.elem.onclick = function ( ev ) {
+      history.pushState(null, null, `#${target}`);
       ev.preventDefault();
-      doc.location.hash = target;
 
       setCurrentByHash( target )
     }

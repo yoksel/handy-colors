@@ -109,6 +109,8 @@ $crp-inner-radius: 5px;
     height: 4.5em;
   }
   @media ( min-width: 800px ) {
-    height: 2.5em;
+    height: 3em;
+    overflow: hidden;
+    line-height: 1.8em;
   }
 }

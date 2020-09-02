@@ -46,6 +46,14 @@
   }
 }
 
+.tiny-palette__control {
+  flex-basis: 100%;
+  display: block;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
 .tiny-palette__colorviews {
   display: flex;
   flex-basis: 100%;
@@ -73,15 +81,7 @@
   height: 4rem;
   font-size: 13px;
   font-style: italic;
-}
-
-.tiny-palette__colornames-hidden-text {
-  display: block !important;
-  min-height: 2rem;
-  box-sizing: border-box;
-  padding: .25rem;
-  border: 4px solid transparent;
-  visibility: hidden;
+  pointer-events: none;
 }
 
 .tiny-palette__colornames {
@@ -97,11 +97,13 @@
   border-radius: 5px;
   box-shadow: 0 0 10px $color-black-op50;
   opacity: 0;
+  pointer-events: none;
   outline: none;
-  transition: opacity .3s;
+  transition: opacity .1s;
   cursor: pointer;
 
   .tiny-palette--current & {
     opacity: 1;
+    pointer-events: auto;
   }
 }

@@ -133,11 +133,11 @@ function createTinyPalette( paletteItem ) {
   var tinyPalette = $.create('li')
     .addClass(['palettes__item','tiny-palette'])
     .attr({tabindex:"-1"});
+  var colorControl = $.create('button')
+    .addClass('tiny-palette__control')
+    .attr('type', 'button');;
   var colorList = $.create('ul').addClass('tiny-palette__colorviews');
 
-  var colorNamesHiddenText = $.create('div')
-    .addClass(['tiny-palette__colornames-hidden-text'])
-    .attr('style','display: none');
   var colorNamesOut = $.create('textarea')
     .addClass(['tiny-palette__colornames'])
     .attr('spellcheck', 'false');
@@ -145,11 +145,9 @@ function createTinyPalette( paletteItem ) {
   var colors = paletteItem.colors;
   var colorsText = colors.filter( removeEmptyItems).join(', ');
   colorNamesOut.val( colorsText );
-  colorNamesHiddenText.html( colorsText );
 
   var colorNamesWrapper = $.create('div')
     .addClass(['tiny-palette__colornames-wrapper'])
-    .append( colorNamesHiddenText )
     .append( colorNamesOut );
 
 
@@ -157,14 +155,18 @@ function createTinyPalette( paletteItem ) {
   tinyPalette.append( header );
 
   colors.forEach( function ( item ) {
-    var item = $.create('li').addClass('tiny-palette__colorview').attr('style','background: ' + item);
+    var item = $.create('li')
+      .addClass('tiny-palette__colorview')
+      .attr('style','background: ' + item);
     colorList.append( item );
   });
 
-  tinyPalette.append( colorList );
+  colorControl.append( colorList );
+  tinyPalette.append( colorControl );
   tinyPalette.append( colorNamesWrapper );
 
   tinyPalette.textarea = colorNamesOut;
+  tinyPalette.control = colorControl;
 
   return tinyPalette;
 }
@@ -213,8 +215,9 @@ function getTinyPaletteAuthor( paletteItem ) {
 
 function addPaletteAction() {
   palettesSet.items.forEach( function ( item ) {
+    const { control, elem, textarea } = item;
 
-    item.elem.onclick = function () {
+    control.elem.onclick = function () {
       if ( palettesSet.current !== null ) {
         palettesSet.current.removeClass( palettesSet.currentClass );
       }
@@ -223,11 +226,11 @@ function addPaletteAction() {
       palettesSet.current.addClass( palettesSet.currentClass );
     };
 
-    item.textarea.elem.onblur = function () {
+    textarea.elem.onblur = function () {
       unsetCurrentPalette();
     }
 
-    item.elem.onblur = function () {
+    elem.onblur = function () {
       unsetCurrentPalette()
     };
   });

@@ -116,6 +116,8 @@ function initNav() {
 //---------------------------------------------
 
 function initPalettes() {
+  palettesSet.wrapper.html('');
+
   palettes.forEach( function ( item ) {
     var tinyPalette = createTinyPalette( item );
     palettesSet.list.append ( tinyPalette );

@@ -41,7 +41,8 @@ H1, H2, H3, H4, H5 {
   font-weight: normal;
 }
 
-.visually-hidden {
+.visually-hidden,
+.hidden-title {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -51,4 +52,12 @@ H1, H2, H3, H4, H5 {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.no-js .hidden-title {
+  position: relative;
+  width: auto;
+  height: auto;
+  margin: 0 0 1em 0;
+  clip-path: none;
 }

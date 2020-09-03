@@ -5,6 +5,10 @@
 .full-palette__controls {
   margin-bottom: 2rem;
   text-align: right;
+
+  .no-js & {
+    display: none;
+  }
 }
 
 .full-palette__control {

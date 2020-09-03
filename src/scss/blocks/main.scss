@@ -15,7 +15,8 @@
   display: block;
 }
 
-.section--about {
+.section--about,
+.no-js .section--palettes {
   max-width: $bp-tablet;
   margin: 0 auto;
 }

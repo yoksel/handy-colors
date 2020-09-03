@@ -156,7 +156,7 @@
         ElemSet.prototype.html = function ( content ) {
           var elem = this.elem;
 
-          if( content ) {
+          if (content !== null && content !== undefined ) {
             elem.innerHTML = content;
             return this;
           }

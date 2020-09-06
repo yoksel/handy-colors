@@ -1,109 +1,83 @@
-.full-palette {
-  // overflow: hidden;
-}
-
-.full-palette__controls {
-  margin-bottom: 2rem;
-  text-align: right;
-
-  .no-js & {
-    display: none;
-  }
-}
-
-.full-palette__control {
-  margin-left: .5rem;
-  padding: .4rem;
-  border: 1px solid $color-gray-75;
-  background: none;
-  border-radius: 5px;
-  outline: none;
-  fill: $color-gray-75;
-
-  &--current {
-    fill: $color-green-light;
-    border-color: $color-green-light;
-  }
-}
-
-.full-palette__control-icon {
-  display: block;
-}
-
 $bp-full-palette-XS: 420px;
 $bp-full-palette-S: 580px;
-$bp-full-palette-M: 820px;
-$bp-full-palette-L: 1000px;
-$bp-full-palette-XL: 1210px;
+$bp-full-palette-M: 930px;
+$bp-full-palette-L: 1200px;
+
+// The longest color name: lightgoldenrodyellow
 
 .full-palette__colors {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  column-count: 1;
+  column-gap: 1rem;
   padding-bottom: 25px; /* to move up on mobile  */
 
   @media ( min-width: $bp-full-palette-S ) {
-    height: 3380px;
     padding-bottom: 0;
+    column-count: 2;
   }
 
   @media ( min-width: $bp-full-palette-M ) {
-    height: 2030px;
+    column-count: 3;
   }
 
-  @media ( min-width: $bp-full-palette-XL ) {
-    height: 1510px;
+  @media ( min-width: $bp-full-palette-L ) {
+    column-count: 4;
   }
 }
 
 .full-palette__colors--tiles {
   margin: 0 -.2rem;
+  column-count: 2;
 
   @media ( min-width: $bp-full-palette-XS ) {
-    height: 4120px;
+    column-count: 3;
   }
 
   @media ( min-width: $bp-full-palette-S ) {
-    height: 2280px;
+    column-count: 4;
   }
 
   @media ( min-width: $bp-full-palette-M ) {
-    height: 1510px;
+    column-count: 5;
   }
+
   @media ( min-width: $bp-full-palette-L ) {
-    height: 1220px;
+    column-count: 6;
   }
 }
 
 .full-palette-color {
+  display: flex;
+  width: 100%;
+  align-items: center;
   position: relative;
   margin-bottom: .4rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
   white-space: nowrap;
-  display: flex;
-  align-items: center;
+  outline-color: #CCC;
+  border-radius: 5px;
 
   .full-palette__colors--tiles & {
-    width: auto;
-    min-width: 180px; /* lightgoldenrodyellow */
     margin: 0 .2rem .4rem;
   }
 }
 
-.full-palette-color__view,
-.full-palette-color__name {
-  display: inline-block;
-  vertical-align: middle;
-}
 .full-palette-color__view {
   position: relative;
-  width: 120px;
+  width: 40%;
+  min-width: 120px;
   height: 50px;
   background: currentColor;
   box-shadow: inset 0 0 0 1px $color-black-op25;
   border-radius: 5px;
   cursor: pointer;
 
-  &--selected:before {
+  .no-js & {
+    cursor: default;
+  }
+
+  .full-palette-color--selected &:before {
     content: '';
     display: block;
     position: absolute;
@@ -159,6 +133,10 @@ $bp-full-palette-XL: 1210px;
       left: -4px;
       opacity: 1;
     }
+  }
+
+  .no-js &:after {
+    content: none;
   }
 }
 
@@ -220,12 +198,12 @@ $bp-full-palette-XL: 1210px;
   width: 20px;
   height: 20px;
   margin: 0 .7em;
-  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='200 200 200 200'%3E%3Cpolygon fill='white' points='320 280 320 200 280 200 280 280 200 280 200 320 280 320 280 400 320 400 320 320 400 320 400 280'%3E%3C/polygon%3E%3C/svg%3E");
+  background-image: url($plus-sign);
   background-position: 50% 50%;
   background-repeat: no-repeat;
 
-  .full-palette-color__view--selected & {
-    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 80 200 40'%3E%3Cpolygon fill='white' points='0 80 0 120 200 120 200 80'%3E%3C/polygon%3E%3C/svg%3E");
+  .full-palette-color--current & {
+    background-image: url($minus-sign);
   }
 
   .full-palette__colors--tiles & {

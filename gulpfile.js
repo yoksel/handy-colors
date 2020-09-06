@@ -1,16 +1,25 @@
-var gulp = require('gulp');
-let sync = require('browser-sync').create();
-var reload = sync.reload;
-var include = require("gulp-include");
-var sass = require('gulp-sass');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var cssnano = require('cssnano');
-var rename = require('gulp-rename');
-var mqpacker = require("css-mqpacker");
-var copy = require('gulp-copy');
-var colors = require('colors/safe');
-var del = require('del');
+const gulp = require('gulp');
+const sync = require('browser-sync').create();
+const reload = sync.reload;
+const include = require('gulp-include');
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const rename = require('gulp-rename');
+const copy = require('gulp-copy');
+const colors = require('colors/safe');
+const del = require('del');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const tsify = require('tsify');
+const sourcemaps = require('gulp-sourcemaps');
+const buffer = require('vinyl-buffer');
+const mustache = require('gulp-mustache');
+const data = {
+  palettes: require('./src/js/data/palettes.js'),
+  colors: require('./src/js/data/colors.js')
+};
 
 sass.compiler = require('node-sass');
 
@@ -25,8 +34,7 @@ gulp.task('scss', function () {
         'last 2 Opera versions',
         'last 2 Edge versions'
       ]
-    }),
-    mqpacker()
+    })
   ];
 
   console.log('⬤  Run ' + colors.yellow('Scss') +
@@ -54,6 +62,31 @@ gulp.task('js', function () {
     .pipe(reload({ stream: true }));
 });
 
+gulp.task('ts', function () {
+  return browserify({
+    basedir: '.',
+    debug: true,
+    entries: ['src/js/index.ts'],
+    cache: {},
+    packageCache: {}
+  })
+    .plugin(tsify)
+    .transform('babelify', {
+      presets: ['es2015'],
+      extensions: ['.ts']
+    })
+    .bundle()
+    .on('error', function (error) {
+      console.error(error);
+    })
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.write('assets/js/'))
+    .pipe(gulp.dest('assets/js/'))
+    .pipe(reload({ stream: true }));
+});
+
 // INCLUDE BLOCKS IN HTML
 gulp.task('include', function () {
   console.log(colors.blue('⬤  Include files to HTML... ⬤'));
@@ -65,8 +98,18 @@ gulp.task('include', function () {
     .pipe(reload({ stream: true }));
 });
 
+// TEMPLATES
+gulp.task('tmpl', function () {
+  console.log(colors.blue('⬤  Templating in HTML... ⬤'));
+
+  return gulp.src('*.html')
+    .pipe(mustache(data))
+    .pipe(gulp.dest('./'))
+    .pipe(reload({ stream: true }));
+});
+
 // WATCH SASS, PREPROCESS AND RELOAD
-gulp.task('serve', gulp.series(['include', 'scss', 'js'],
+gulp.task('serve', gulp.series(['include', 'tmpl', 'scss', 'js', 'ts'],
   function () {
     sync.init({
       ui: false,
@@ -78,8 +121,9 @@ gulp.task('serve', gulp.series(['include', 'scss', 'js'],
     });
 
     gulp.watch(['src/**/*.scss'], gulp.series('scss'));
-    gulp.watch(['src/**/*.html'], gulp.series('include'));
+    gulp.watch(['src/**/*.html'], gulp.series('include', 'tmpl'));
     gulp.watch(['src/**/*.js'], gulp.series('js'));
+    gulp.watch(['src/**/*.ts'], gulp.series('ts'));
   }));
 
 // CLEAN BUILD
@@ -99,7 +143,7 @@ gulp.task('copy', function () {
 });
 
 // BUILD
-gulp.task('build', gulp.series(['clean'], ['scss', 'include', 'copy']));
+gulp.task('build', gulp.series(['clean'], ['scss', 'include', 'tmpl', 'copy']));
 
 gulp.task('default', function () {
   console.log(colors.rainbow('⬤  ================================ ⬤\n'));

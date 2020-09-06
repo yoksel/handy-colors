@@ -4,11 +4,8 @@
   padding: 0 5px;
   display: flex;
   justify-content: space-around;
-
-  .no-js & {
-    display: none;
-  }
 }
+
 .nav__item {
   flex: 1 0;
   padding: .6rem 1.5rem;

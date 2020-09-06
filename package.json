@@ -1,5 +1,5 @@
 {
-  "name": "project-scaffold",
+  "name": "handy-colors",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -7,26 +7,54 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yoksel/project-scaffold.git"
+    "url": "https://github.com/yoksel/handy-colors.git"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.5",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
     "autoprefixer": "^6.3.5",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0",
     "browser-sync": "^2.26.7",
+    "browserify": "^16.5.2",
     "colors": "^1.1.2",
-    "css-mqpacker": "^4.0.1",
     "cssnano": "^4.1.10",
     "del": "^2.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
     "gulp": "^4.0.0",
     "gulp-copy": "0.0.2",
     "gulp-include": "^2.1.0",
+    "gulp-mustache": "^5.0.0",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^4.0.2"
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "node-sass": "^4.14.1",
+    "stylelint": "^13.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "tsify": "^5.0.2",
+    "typescript": "^4.0.2",
+    "typescript-eslint": "0.0.1-alpha.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
     "start": "gulp serve",
     "build": "gulp clean && gulp scss && gulp include && gulp copy",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build",
+    "lint": "npm run js:lint && npm run css:lint",
+    "lint:fix": "npm run js:fix && npm run css:fix",
+    "js:lint": "eslint src --ext .ts,.js",
+    "js:fix": "eslint src --ext .ts,.js --fix",
+    "css:lint": "stylelint **/*.scss",
+    "css:fix": "stylelint **/*.scss --fix"
   }
 }

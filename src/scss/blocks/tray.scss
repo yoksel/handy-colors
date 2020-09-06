@@ -1,6 +1,6 @@
 $crp-inner-radius: 5px;
 
-.create-palette-wrapper {
+.tray-wrapper {
   position: fixed;
   z-index: 2;
   left: 0;
@@ -17,14 +17,14 @@ $crp-inner-radius: 5px;
   }
 }
 
-.create-palette {
+.tray {
   @include container-width;
   margin: 0 auto;
   padding: 0 1rem;
   box-sizing: border-box;
 }
 
-.create-palette__title {
+.tray__title {
   width: 100%;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -38,7 +38,7 @@ $crp-inner-radius: 5px;
   }
 }
 
-.create-palette__colors {
+.tray__colors {
   position: relative;
   display: flex;
   width: 100%;
@@ -53,7 +53,8 @@ $crp-inner-radius: 5px;
   }
 }
 
-.create-palette__color {
+.tray__color {
+  position: relative;
   width: 20%;
   border-left: 1px solid $color-black-op25;
   cursor: pointer;
@@ -74,7 +75,28 @@ $crp-inner-radius: 5px;
   }
 }
 
-.create-palette__output {
+.tray__control {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  opacity: 0;
+  background-color: transparent;
+
+  .tray__color--current.tray__color--filled & {
+    background-image: url($minus-sign);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+
+    &:hover {
+      background-color: rgba(0,0,0,.4);
+      opacity: .5;
+    }
+  }
+}
+
+.tray__output {
   width: 100%;
   margin-top: .5rem;
   height: 6em;

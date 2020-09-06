@@ -1,0 +1,27 @@
+.view-controls {
+  margin-bottom: 2rem;
+  text-align: right;
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.view-controls__control {
+  margin-left: .5rem;
+  padding: .4rem;
+  border: 1px solid $color-gray-75;
+  background: none;
+  border-radius: 5px;
+  outline: none;
+  fill: $color-gray-75;
+
+  &--current {
+    fill: $color-green-light;
+    border-color: $color-green-light;
+  }
+}
+
+.view-controls__control-icon {
+  display: block;
+}

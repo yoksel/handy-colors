@@ -1,6 +1,23 @@
 <div class="palettes">
+  <ul class="palettes__list">
+    {{# palettes}}
+    <li class="palettes__item tiny-palette" tabindex="-1">
+      <header class="tiny-palette__header">
+        <h4 class="tiny-palette__title">{{title}}</h4>
+      </header>
 
-  <p class="no-js-text">
-    Enable JavaScript to see & use palettes.
-  </p>
+      <button class="tiny-palette__control" type="button">
+        <span class="tiny-palette__colorviews">
+          {{# colors}}
+          <span class="tiny-palette__colorview" style="background: {{.}}"></span>
+          {{/ colors}}
+        </span>
+      </button>
+      <div class="tiny-palette__colornames-wrapper">
+        <textarea class="tiny-palette__colornames"
+          spellcheck="false">{{colors}}</textarea>
+      </div>
+    </li>
+    {{/ palettes}}
+  </ul>
 </div>

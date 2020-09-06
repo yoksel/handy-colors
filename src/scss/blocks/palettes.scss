@@ -14,7 +14,6 @@
   flex-wrap: wrap;
   flex-grow: 1;
   margin: .5rem .5rem 1rem;
-  cursor: pointer;
   transition: all .5s;
 }
 
@@ -52,6 +51,11 @@
   padding: 0;
   background: transparent;
   border: 0;
+
+  .no-js & {
+    pointer-events: none;
+    cursor: default;
+  }
 }
 
 .tiny-palette__colorviews {
@@ -78,10 +82,15 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 4rem;
+  min-height: 4rem;
   font-size: 13px;
   font-style: italic;
   pointer-events: none;
+
+  .no-js & {
+    position: relative;
+    margin-top: 1rem;
+  }
 }
 
 .tiny-palette__colornames {
@@ -105,5 +114,11 @@
   .tiny-palette--current & {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .no-js & {
+    position: relative;
+    opacity: 1;
+    box-shadow: none;
   }
 }

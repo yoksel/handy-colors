@@ -11,12 +11,11 @@
   }
 }
 
-.section--visible {
+.section--current {
   display: block;
 }
 
-.section--about,
-.no-js .section--palettes {
+.section--about {
   max-width: $bp-tablet;
   margin: 0 auto;
 }

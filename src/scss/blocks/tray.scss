@@ -10,7 +10,7 @@ $crp-inner-radius: 5px;
   padding: 1rem 0;
   box-sizing: border-box;
   background: $color-bg;
-  box-shadow: 0 0 15px rgba(0,0,0,.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, .5);
 
   .no-js & {
     display: none;
@@ -19,6 +19,7 @@ $crp-inner-radius: 5px;
 
 .tray {
   @include container-width;
+
   margin: 0 auto;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -33,7 +34,7 @@ $crp-inner-radius: 5px;
   font-size: 1.75rem;
   color: $color-title;
 
-  @media ( min-width: $bp-tablet ) {
+  @media (min-width: $bp-tablet) {
     font-size: 2rem;
   }
 }
@@ -43,12 +44,12 @@ $crp-inner-radius: 5px;
   display: flex;
   width: 100%;
   height: 3.5rem;
-      box-sizing: border-box;
-  background: linear-gradient(-45deg, transparent 49%, $color-black-op10 50%, transparent 51% ) 0 0 / 10px 10px;
+  box-sizing: border-box;
+  background: linear-gradient(-45deg, transparent 49%, $color-black-op10 50%, transparent 51%) 0 0 / 10px 10px;
   border: 1px solid $color-gray-75;
   border-radius: 5px;
 
-  @media ( min-width: $bp-desktop ) {
+  @media (min-width: $bp-desktop) {
     // width: 50%;
   }
 }
@@ -90,7 +91,7 @@ $crp-inner-radius: 5px;
     background-size: 20px 20px;
 
     &:hover {
-      background-color: rgba(0,0,0,.4);
+      background-color: rgba(0, 0, 0, .4);
       opacity: .5;
     }
   }
@@ -108,10 +109,11 @@ $crp-inner-radius: 5px;
   font-style: italic;
   color: #777;
 
-  @media ( min-width: 500px ) {
+  @media (min-width: 500px) {
     height: 4.5em;
   }
-  @media ( min-width: 800px ) {
+
+  @media (min-width: 800px) {
     height: 3em;
     overflow: hidden;
     line-height: 1.8em;

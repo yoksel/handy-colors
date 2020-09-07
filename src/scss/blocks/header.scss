@@ -1,30 +1,35 @@
 .header-wrapper {
   background-color: palegoldenrod;
-  background-image:
-    linear-gradient( to right bottom,
-      hsla(50, 100%, 50%, 1) 5%,
-      hsla(50, 100%, 50%, 0) 50%
-    ),
-    linear-gradient( to left top,
-      hsla(190, 95%, 50%, 1) 5%,
-      hsla(190, 95%, 50%, 0) 40%
-    ),
-    linear-gradient( to right top,
-      hsla(130, 95%, 60%, 1) 5%,
-      hsla(130, 95%, 60%, 0) 50%
-    ),
-    radial-gradient( at bottom,
-      hsla(290, 100%, 60%, 1) 5%,
-      hsla(50, 100%, 60%, 0) 60%
-    ),
-    linear-gradient( to left bottom,
-      hsla(340, 100%, 50%, 1) 5%,
-      hsla(340, 100%, 50%, 0)
-    );
+  background-image: linear-gradient(
+    to right bottom,
+    hsla(50, 100%, 50%, 1) 5%,
+    hsla(50, 100%, 50%, 0) 50%
+  ),
+    linear-gradient(
+    to left top,
+    hsla(190, 95%, 50%, 1) 5%,
+    hsla(190, 95%, 50%, 0) 40%
+  ),
+    linear-gradient(
+    to right top,
+    hsla(130, 95%, 60%, 1) 5%,
+    hsla(130, 95%, 60%, 0) 50%
+  ),
+    radial-gradient(
+    at bottom,
+    hsla(290, 100%, 60%, 1) 5%,
+    hsla(50, 100%, 60%, 0) 60%
+  ),
+    linear-gradient(
+    to left bottom,
+    hsla(340, 100%, 50%, 1) 5%,
+    hsla(340, 100%, 50%, 0)
+  );
 }
 
 .header {
   @include container-width;
+
   margin: 0 auto;
 }
 
@@ -33,7 +38,7 @@
   padding: 2rem 0;
   text-align: center;
   text-shadow: 0 0 5px $color-black-op40,
-               0 0 15px $color-black-op40;
+    0 0 15px $color-black-op40;
   font-family: $font-family-title;
   text-transform: uppercase;
   font-size: 2.7rem;
@@ -41,27 +46,28 @@
   transition: all .1s;
   color: #FFF;
 
-  @media (min-width: $bp-tablet ) {
+  @media (min-width: $bp-tablet) {
     font-size: 3.5rem;
     line-height: 1.4;
 
-    &:before,
-    &:after {
-      content: '\2605';
+    &::before,
+    &::after {
+      content: "\2605";
       text-shadow: 0 0 10px $color-black-op40;
       vertical-align: .5em;
       font-size: .4em;
     }
-    &:before {
+
+    &::before {
       margin-right: .4em;
     }
-    &:after {
+
+    &::after {
       margin-left: .4em;
     }
   }
 
-  @media (min-width: $bp-desktop ) {
+  @media (min-width: $bp-desktop) {
     font-size: 5rem;
   }
 }
-

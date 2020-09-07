@@ -23,6 +23,12 @@
     "comment-whitespace-inside": "always",
     "comment-empty-line-before": null,
     "at-rule-no-vendor-prefix": true,
+    "at-rule-no-unknown": [
+      true,
+      ignoreAtRules: [
+        "mixin", "include"
+      ]
+    ],
     "selector-pseudo-element-colon-notation": "double",
     "selector-pseudo-class-parentheses-space-inside": "never",
     "selector-no-vendor-prefix": true,

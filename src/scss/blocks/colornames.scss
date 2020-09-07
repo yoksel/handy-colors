@@ -6,7 +6,7 @@
   font-size: 14px;
   font-style: italic;
 
-  @media ( min-width: $bp-tablet ) {
+  @media (min-width: $bp-tablet) {
     font-size: 15px;
   }
 }
@@ -15,10 +15,11 @@
   margin: 0 .5rem 0 0;
   color: $color-font;
 
-  &:after {
-    content: ',';
+  &::after {
+    content: ",";
   }
-  &:last-child:after {
+
+  &:last-child::after {
     content: none;
   }
 }

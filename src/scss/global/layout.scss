@@ -2,6 +2,7 @@
 .container,
 .footer {
   @include container-width;
+
   margin: 0 auto;
   box-sizing: border-box;
 }

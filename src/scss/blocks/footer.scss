@@ -1,14 +1,13 @@
 .footer {
   @include container-width;
+
   margin: 2rem auto 4rem;
   padding: 0 1rem;
 
   &__inner {
     display: flex;
     justify-content: space-between;
-
     padding: 2rem 0 0;
-
     border-top: 1px solid $color-gray-75;
     font-size: 14px;
   }

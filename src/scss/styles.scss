@@ -1,19 +1,16 @@
-@import 'global/vars';
-@import 'global/mixins';
-
-@import 'global/normalize';
-@import 'global/base';
-@import 'global/layout';
-
-@import 'blocks/header';
-@import 'blocks/nav';
-@import 'blocks/main';
-@import 'blocks/footer';
-
+@import "global/vars";
+@import "global/mixins";
+@import "global/normalize";
+@import "global/base";
+@import "global/layout";
+@import "blocks/header";
+@import "blocks/nav";
+@import "blocks/main";
+@import "blocks/footer";
 @import "blocks/colornames";
 @import "blocks/svg-icons";
-@import 'blocks/full-palette';
-@import 'blocks/view-controls';
+@import "blocks/full-palette";
+@import "blocks/view-controls";
 @import "blocks/tray";
 @import "blocks/palettes";
 @import "blocks/about";

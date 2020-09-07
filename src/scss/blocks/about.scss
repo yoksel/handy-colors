@@ -9,8 +9,8 @@
 .section--about LI {
   margin-bottom: .5em;
 
-  &:before {
-    content: '— ';
+  &::before {
+    content: "— ";
     color: $color-gray-75;
   }
 }

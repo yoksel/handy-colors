@@ -3,15 +3,11 @@ HTML {
 }
 
 BODY {
-    background: $color-bg;
-    font: #{$font-size}/1.6 $font-family;
-    color: $color-font;
+  background: $color-bg;
+  font: #{$font-size}/1.6 $font-family;
+  color: $color-font;
 }
 
-::-moz-selection {
-  background: gold;
-  color: #000;
-}
 ::selection {
   background: gold;
   color: #000;
@@ -36,7 +32,11 @@ UL {
   list-style: none;
 }
 
-H1, H2, H3, H4, H5 {
+H1,
+H2,
+H3,
+H4,
+H5 {
   font-family: $font-family-title;
   font-weight: normal;
 }

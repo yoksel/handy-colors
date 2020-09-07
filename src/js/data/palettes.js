@@ -92,6 +92,7 @@ palettes[palettes.length] = {
   },
   colors: [
     'rosybrown',
+    'burlywood',
     'palegoldenrod',
     'darkseagreen',
     'cadetblue'

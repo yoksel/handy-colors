@@ -46,7 +46,12 @@ export default class FullPalette {
       }
 
       this._currentViewControl.classList.remove(CLASSNAME.CONTROL_CURRENT);
-      this._colorsElement.classList.toggle(CLASSNAME.COLORS_TILES);
+      if (viewControl.value === 'tiles') {
+        this._colorsElement.classList.add(CLASSNAME.COLORS_TILES);
+      } else {
+        this._colorsElement.classList.remove(CLASSNAME.COLORS_TILES);
+      }
+
       this._currentViewControl = viewControl;
       this._currentViewControl.classList.add(CLASSNAME.CONTROL_CURRENT);
     });

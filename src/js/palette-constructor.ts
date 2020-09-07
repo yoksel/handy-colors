@@ -4,122 +4,106 @@ import Tray from './tray';
 
 const MAX_COLORS = 5;
 
-export default class PaletteConstructor {
-  _fullPaletteElement: HTMLElement;
-  _createPaletteElement: HTMLElement;
-  _fullPalette: IFullPalette;
-  _tray: ITray;
-  _colors: Array<string>;
-  _currentPosition: number;
-  _isSequential: boolean;
+export const initPaletteConstructor = ({ fullPaletteElement, createPaletteElement }: IPaletteContructor):void => {
+  const tray: ITray = new Tray({
+    element: createPaletteElement,
+    removeColor,
+    setPosition
+  });
 
-  constructor ({ fullPaletteElement, createPaletteElement }: IPaletteContructor) {
-    this._fullPaletteElement = fullPaletteElement;
-    this._createPaletteElement = createPaletteElement;
+  const fullPalette: IFullPalette = new FullPalette({
+    element: fullPaletteElement,
+    colorClickHandler: toggleColor
+  });
 
-    this._toggleColor = this._toggleColor.bind(this);
-    this._removeColor = this._removeColor.bind(this);
-    this._setPosition = this._setPosition.bind(this);
+  const colors: Array<string> = [];
+  let currentPosition = 0;
 
-    this._tray = new Tray({
-      element: this._createPaletteElement,
-      removeColor: this._removeColor,
-      setPosition: this._setPosition
-    });
-    this._fullPalette = new FullPalette({
-      element: fullPaletteElement,
-      colorClickHandler: this._toggleColor
-    });
+  // If no clicks on colors => position not changed manually
+  // If all colors was cleared & pos is 0
+  let isSequential = true;
 
-    this._colors = [];
-    this._currentPosition = 0;
-
-    // If no clicks on colors => position not changed manually
-    // If all colors was cleared & pos is 0
-    this._isSequential = true;
-  }
-
-  _toggleColor (color: string): void {
-    const currentPosColor = this._getCurrentColor();
+  function toggleColor (color: string): void {
+    const currentPosColor = getCurrentColor();
 
     if (currentPosColor === color) {
-      this._removeColor(this._currentPosition);
-      this._tray.removeColorFromTray(this._currentPosition);
+      removeColor(currentPosition);
+      tray.removeColorFromTray(currentPosition);
       return;
     }
 
-    this._addColor(color);
+    addColor(color);
 
-    this._setNextCell();
+    setNextCell();
 
-    this._fullPalette.setCurrentColor(this._getCurrentColor());
+    fullPalette.setCurrentColor(getCurrentColor());
   }
 
-  _setNextCell ():void {
-    if (this._isSequential) {
-      if (this._currentPosition < MAX_COLORS - 1) {
-        this._currentPosition++;
-        this._tray.setCurrent(this._currentPosition);
+  function setNextCell (): void {
+    if (isSequential) {
+      if (currentPosition < MAX_COLORS - 1) {
+        currentPosition++;
+        tray.setCurrent(currentPosition);
       } else {
-        this._isSequential = false;
+        isSequential = false;
       }
     }
   }
 
-  _setPosition (position: number): void {
+  function setPosition (position: number): void {
     if (typeof position !== 'number') {
       return;
     }
 
-    this._currentPosition = position;
-    this._isSequential = false;
-    this._fullPalette.setCurrentColor(this._getCurrentColor());
+    currentPosition = position;
+    isSequential = false;
+    fullPalette.setCurrentColor(getCurrentColor());
   }
 
-  _addColor (color: string): void {
-    const currentColorOnPos = this._getCurrentColor();
-    this._colors[this._currentPosition] = color;
+  function addColor (color: string): void {
+    const currentColorOnPos = getCurrentColor();
+    colors[currentPosition] = color;
 
     const isNeedUnselectColorOnPos = currentColorOnPos
       && currentColorOnPos !== color
-      && !this._colors.includes(currentColorOnPos);
+      && !colors.includes(currentColorOnPos);
 
     if (isNeedUnselectColorOnPos) {
       // Override existed color & unselect it
-      this._fullPalette.unselectColor(currentColorOnPos);
+      fullPalette.unselectColor(currentColorOnPos);
     }
 
-    this._tray.addColorToTray({
+    tray.addColorToTray({
       color,
-      position: this._currentPosition
+      position: currentPosition
     });
-    this._fullPalette.selectColor(color);
+    fullPalette.selectColor(color);
 
-    this._tray.setTrayOutput(this._getExistedColors());
+    tray.setTrayOutput(getExistedColors());
   }
 
-  _removeColor (position: number): void {
-    const color = this._colors[position];
-    this._colors[position] = '';
+  function removeColor (position: number): void {
+    const color = colors[position];
+    colors[position] = '';
 
-    if (!this._colors.includes(color)) {
-      this._fullPalette.unselectColor(color);
+    if (!colors.includes(color)) {
+      fullPalette.unselectColor(color);
     }
 
-    const existedColors = this._getExistedColors();
+    const existedColors = getExistedColors();
     if (existedColors.length === 0) {
-      this._isSequential = true;
+      isSequential = true;
     }
 
-    this._tray.setTrayOutput(existedColors);
-    this._fullPalette.setCurrentColor(this._getCurrentColor());
+    tray.setTrayOutput(existedColors);
+    fullPalette.setCurrentColor(getCurrentColor());
   }
 
-  _getExistedColors (): Array<string> {
-    return this._colors.filter(item => item);
+  function getExistedColors (): Array<string> {
+    return colors.filter(item => item);
   }
 
-  _getCurrentColor (): string {
-    return this._colors[this._currentPosition];
+  function getCurrentColor (): string {
+    return colors[currentPosition];
   }
-}
+};

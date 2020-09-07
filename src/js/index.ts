@@ -1,7 +1,7 @@
 import Nav from './nav';
 import Tabs from './tabs';
-import Palettes from './palettes';
-import PaletteConstructor from './palette-constructor';
+import { addPalettesActions } from './palettes';
+import { initPaletteConstructor } from './palette-constructor';
 
 document.body.classList.remove('no-js');
 
@@ -21,12 +21,12 @@ const nav = new Nav({
   setCurrentTab: tabs.setCurrent
 });
 
-const paletteConstructor = new PaletteConstructor({
+initPaletteConstructor({
   fullPaletteElement,
   createPaletteElement
 });
 
-const palettes = new Palettes({ element: palettesElement });
+addPalettesActions({ element: palettesElement });
 
 nav.setCurrent(currentSectionId);
 tabs.setCurrent(currentSectionId);

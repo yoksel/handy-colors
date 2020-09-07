@@ -5,27 +5,21 @@ enum CLASSNAME {
   CURRENT = 'tiny-palette--current'
 }
 
-export default class Palettes {
-  _element: HTMLElement;
-  _current: HTMLElement | null;
+export const addPalettesActions = ({ element }: IPalettes): void => {
+  let current: HTMLElement = null;
 
-  constructor ({ element }: IPalettes) {
-    this._element = element;
-    this._current = null;
+  element.addEventListener('click', (event) => {
+    const palette = (<HTMLElement>event.target).closest(`.${CLASSNAME.ITEM}`);
 
-    this._element.addEventListener('click', (event) => {
-      const palette = (<HTMLElement>event.target).closest(`.${CLASSNAME.ITEM}`);
+    if (!palette || palette.classList.contains(CLASSNAME.CURRENT)) {
+      return;
+    }
 
-      if (!palette || palette.classList.contains(CLASSNAME.CURRENT)) {
-        return;
-      }
+    if (current) {
+      current.classList.remove(CLASSNAME.CURRENT);
+    }
 
-      if (this._current) {
-        this._current.classList.remove(CLASSNAME.CURRENT);
-      }
-
-      this._current = <HTMLElement>palette;
-      this._current.classList.add(CLASSNAME.CURRENT);
-    });
-  }
-}
+    current = <HTMLElement>palette;
+    current.classList.add(CLASSNAME.CURRENT);
+  });
+};

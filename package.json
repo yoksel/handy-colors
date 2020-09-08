@@ -48,7 +48,7 @@
   },
   "scripts": {
     "start": "gulp serve",
-    "build": "gulp clean && gulp scss && gulp include && gulp copy",
+    "build": "gulp clean && gulp scss && gulp include && gulp tmpl && gulp copy",
     "deploy": "npm run build && gh-pages -d build",
     "lint": "npm run js:lint && npm run css:lint",
     "lint:fix": "npm run js:fix && npm run css:fix",

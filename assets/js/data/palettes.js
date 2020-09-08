@@ -1,5 +1,12 @@
 const palettes = [];
 
+const addColorsAsString = (palettes) => {
+  return palettes.map(item => {
+    item.colorsString = item.colors.join(', ');
+    return item;
+  });
+};
+
 palettes[palettes.length] = {
   title: 'Felt pens I',
   author: {
@@ -529,4 +536,4 @@ palettes[palettes.length] = {
   ]
 };
 
-module.exports = palettes;
+module.exports = addColorsAsString(palettes);

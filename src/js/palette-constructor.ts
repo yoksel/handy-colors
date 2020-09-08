@@ -56,8 +56,15 @@ export const initPaletteConstructor = ({ fullPaletteElement, createPaletteElemen
     }
 
     currentPosition = position;
-    isSequential = false;
     fullPalette.setCurrentColor(getCurrentColor());
+
+    const existedColors = getExistedColors();
+
+    if (existedColors.length === 0 && currentPosition === 0) {
+      isSequential = true;
+    } else {
+      isSequential = false;
+    }
   }
 
   function addColor (color: string): void {
